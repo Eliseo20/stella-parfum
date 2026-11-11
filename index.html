@@ -1,0 +1,582 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Decants de perfumes originales en 7 y 10 ml. Entrega en mano en La Serena y Coquimbo.">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<title>Stella Parfum</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Outfit:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: boutique nocturna — hero con frasco de cristal graduado (7 / 10 ml) y destellos, franja de datos, vitrina de favoritos, pasos de pedido y cierre con WhatsApp fijo */
+:root{
+  color-scheme:dark;
+  --ink:#130f1c;        /* fondo: violeta casi negro */
+  --velvet:#1f1830;     /* superficies */
+  --velvet-2:#2a2140;
+  --line:#3a2f52;
+  --champagne:#f4e7d2;  /* texto principal */
+  --mist:#d2c8df;       /* texto secundario */
+  --amber:#eaa95b;      /* acento: ámbar líquido */
+  --rose:#e07f93;       /* acento secundario */
+  --wa:#25d366;         /* WhatsApp */
+  --wa-ink:#06210f;
+  --f-display:"DM Serif Display",Georgia,"Times New Roman",serif;
+  --f-body:"Outfit",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{background:var(--ink);color:var(--champagne);font-family:var(--f-body);font-size:16px;line-height:1.55;font-weight:400;overflow-x:hidden}
+a{color:inherit}
+.gut{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:1120px;margin:0 auto}
+:focus-visible{outline:2px solid var(--amber);outline-offset:3px;border-radius:6px}
+
+/* fondo atmosférico */
+.aura{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.aura i{position:absolute;border-radius:50%;filter:blur(80px);opacity:.45}
+.aura i:nth-child(1){width:520px;height:520px;background:radial-gradient(circle,#7a3f8f,transparent 70%);top:-160px;right:-120px}
+.aura i:nth-child(2){width:460px;height:460px;background:radial-gradient(circle,#b9683a,transparent 70%);top:380px;left:-200px;opacity:.3}
+.aura i:nth-child(3){width:420px;height:420px;background:radial-gradient(circle,#8e3554,transparent 70%);bottom:-180px;right:10%;opacity:.28}
+main,header.top,footer{position:relative;z-index:1}
+
+/* cabecera */
+header.top{padding-block:18px}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo svg{width:26px;height:26px;flex:none}
+.logo b{font-family:var(--f-display);font-weight:400;font-size:1.6rem;letter-spacing:.04em}
+.pill{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:600;font-size:.92rem;border-radius:99px;padding:10px 18px;border:1px solid var(--line);background:rgba(255,255,255,.04);transition:background .2s,border-color .2s}
+.pill:hover{background:rgba(255,255,255,.08);border-color:var(--mist)}
+.pill svg{width:18px;height:18px}
+
+/* hero */
+.hero{padding-block:28px 56px}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:40px;align-items:center}
+.eyebrow{font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--amber);font-weight:600;display:flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:28px;height:1px;background:var(--amber)}
+h1{font-family:var(--f-display);font-weight:400;font-size:clamp(2.9rem,7.4vw,5.6rem);line-height:.98;margin:18px 0 0;letter-spacing:-.005em;text-wrap:balance}
+h1 em{font-style:normal;background:linear-gradient(100deg,var(--amber),var(--rose) 60%,var(--amber));-webkit-background-clip:text;background-clip:text;color:transparent;background-size:200% 100%;animation:sheen 7s ease-in-out infinite}
+@keyframes sheen{50%{background-position:100% 0}}
+.lede{font-size:1.12rem;color:var(--mist);max-width:46ch;margin:22px 0 0;font-weight:400}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;font-weight:600;font-size:1rem;border-radius:14px;padding:15px 22px;border:0;cursor:pointer;font-family:inherit;transition:transform .15s,box-shadow .2s,background .2s}
+.btn:active{transform:translateY(1px)}
+.btn svg{width:20px;height:20px;flex:none}
+.btn-wa{background:var(--wa);color:var(--wa-ink);box-shadow:0 10px 30px -10px rgba(37,211,102,.6)}
+.btn-wa:hover{box-shadow:0 14px 36px -10px rgba(37,211,102,.8)}
+.btn-ghost{background:transparent;color:var(--champagne);border:1px solid var(--line)}
+.btn-ghost:hover{border-color:var(--champagne)}
+.trust{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:24px;font-size:.88rem;color:var(--mist)}
+.trust span{display:inline-flex;align-items:center;gap:7px}
+.trust span::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--amber)}
+
+/* frasco */
+.stage{position:relative;aspect-ratio:4/5;max-width:100%;width:100%;max-width:400px;justify-self:center}
+.stage canvas{position:absolute;inset:0;width:100%;height:100%}
+.bottle{position:absolute;left:50%;top:50%;transform:translate(-50%,-44%);width:44%;max-width:100%}
+.cap{width:38%;height:0;padding-bottom:30%;margin:0 auto;border-radius:10px 10px 4px 4px;background:linear-gradient(90deg,#8d6a3c,#f2cf8e 35%,#b38443 60%,#e8c27c);box-shadow:inset 0 -6px 10px rgba(0,0,0,.25)}
+.neck{width:20%;height:0;padding-bottom:7%;margin:0 auto;background:linear-gradient(90deg,#3b3150,#6b5d86,#3b3150)}
+.glass{position:relative;width:100%;height:0;padding-bottom:132%;border-radius:22px 22px 30px 30px;background:linear-gradient(115deg,rgba(255,255,255,.22),rgba(255,255,255,.04) 40%,rgba(255,255,255,.1) 70%,rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.28);box-shadow:inset 0 0 30px rgba(255,255,255,.06),0 40px 60px -20px rgba(0,0,0,.6);overflow:hidden;backdrop-filter:blur(2px)}
+.liquid{position:absolute;left:0;right:0;bottom:0;height:72%;background:linear-gradient(180deg,rgba(240,176,95,.92),rgba(214,108,96,.95) 70%,rgba(160,62,90,.95));}
+.liquid::before{content:"";position:absolute;left:-25%;right:-25%;top:-10px;height:20px;border-radius:45%;background:rgba(250,205,140,.95);animation:wave 6s ease-in-out infinite}
+@keyframes wave{50%{transform:translateX(8%) rotate(2deg)}}
+.shine{position:absolute;top:6%;left:12%;width:12%;height:78%;border-radius:20px;background:linear-gradient(180deg,rgba(255,255,255,.5),rgba(255,255,255,0));}
+.label{position:absolute;left:14%;right:14%;top:30%;padding:10px 6px;text-align:center;background:rgba(19,15,28,.72);border:1px solid rgba(244,231,210,.4);border-radius:4px}
+.label b{display:block;font-family:var(--f-display);font-weight:400;font-size:clamp(.9rem,2.2vw,1.25rem);letter-spacing:.08em}
+.label small{display:block;white-space:nowrap;font-size:clamp(.42rem,1.4vw,.58rem);letter-spacing:.24em;text-transform:uppercase;color:var(--mist);margin-top:2px}
+.marks{position:absolute;right:-64px;top:0;bottom:0;width:58px;font-size:.72rem;color:var(--mist);font-variant-numeric:tabular-nums}
+.marks span{position:absolute;left:0;display:flex;align-items:center;gap:6px;white-space:nowrap}
+.marks span::before{content:"";width:14px;height:1px;background:var(--mist)}
+.marks span.hi{color:var(--amber);font-weight:600}
+.marks span.hi::before{background:var(--amber)}
+
+/* franja */
+.strip{border-block:1px solid var(--line);background:rgba(31,24,48,.55);backdrop-filter:blur(6px)}
+.strip .wrap{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));padding-block:22px}
+.fact{padding:4px 18px;border-left:1px solid var(--line);min-width:0}
+.fact:first-child{border-left:0;padding-left:0}
+.fact b{display:block;font-family:var(--f-display);font-weight:400;font-size:1.9rem;line-height:1.1;color:var(--champagne);font-variant-numeric:tabular-nums}
+.fact span{font-size:.86rem;color:var(--mist)}
+
+/* secciones */
+section.block{padding-block:76px 0}
+.head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:28px}
+h2{font-family:var(--f-display);font-weight:400;font-size:clamp(2.1rem,4.6vw,3.2rem);line-height:1.05;margin:10px 0 0;text-wrap:balance}
+.head p{margin:0;color:var(--mist);max-width:42ch}
+
+/* vitrina */
+.tabs{display:inline-flex;padding:4px;border-radius:99px;border:1px solid var(--line);background:rgba(255,255,255,.03)}
+.tab{font:inherit;font-weight:600;font-size:.9rem;border:0;background:transparent;color:var(--mist);padding:8px 18px;border-radius:99px;cursor:pointer}
+.tab[aria-pressed="true"]{background:var(--champagne);color:var(--ink)}
+.shelf{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.card{position:relative;border-radius:22px;padding:22px;background:linear-gradient(180deg,var(--velvet-2),var(--velvet));border:1px solid var(--line);display:flex;flex-direction:column;gap:14px;overflow:hidden;min-width:0;transition:transform .25s,border-color .25s}
+.card:hover{transform:translateY(-4px);border-color:rgba(234,169,91,.55)}
+.card .orb{position:absolute;width:180px;height:180px;border-radius:50%;right:-60px;top:-70px;filter:blur(30px);opacity:.55;pointer-events:none}
+.card .top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;position:relative}
+.fam{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;padding:5px 10px;border-radius:99px;background:rgba(255,255,255,.07);color:var(--champagne);white-space:nowrap}
+.season{font-size:.78rem;color:var(--mist);text-align:right}
+.card .brand{font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;color:var(--mist);position:relative}
+.card h3{font-family:var(--f-display);font-weight:400;font-size:1.75rem;line-height:1.08;margin:2px 0 0;text-wrap:balance;position:relative}
+.card .conc{font-size:.8rem;color:var(--amber)}
+.notes{display:flex;flex-wrap:wrap;gap:6px;margin:0;padding:0;list-style:none}
+.notes li{font-size:.8rem;padding:4px 10px;border-radius:99px;border:1px solid var(--line);color:var(--mist)}
+.prices{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:auto}
+.price{border-radius:12px;padding:10px 12px;background:rgba(255,255,255,.04);border:1px solid var(--line)}
+.price small{display:block;font-size:.74rem;color:var(--mist);letter-spacing:.06em}
+.price b{font-size:1.2rem;font-weight:600;font-variant-numeric:tabular-nums}
+.ask{display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;font-weight:600;font-size:.94rem;padding:12px;border-radius:12px;background:var(--champagne);color:var(--ink);transition:background .2s}
+.ask:hover{background:#fff}
+.ask svg{width:18px;height:18px}
+.more{margin-top:22px;display:flex;justify-content:center}
+
+/* pasos */
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;counter-reset:s}
+.step{padding:24px 20px;border-radius:20px;border:1px solid var(--line);background:rgba(31,24,48,.6);min-width:0}
+.step::before{counter-increment:s;content:counter(s);display:grid;place-items:center;width:38px;height:38px;border-radius:50%;border:1px solid var(--amber);color:var(--amber);font-family:var(--f-display);font-size:1.25rem;margin-bottom:14px}
+.step b{display:block;font-size:1.05rem;margin-bottom:4px}
+.step p{margin:0;color:var(--mist);font-size:.93rem}
+
+/* packs */
+.packs{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:16px}
+.bigpack{border-radius:26px;padding:34px;background:radial-gradient(120% 140% at 100% 0%,rgba(224,127,147,.35),transparent 55%),radial-gradient(120% 140% at 0% 100%,rgba(234,169,91,.3),transparent 55%),var(--velvet);border:1px solid var(--line);display:flex;flex-direction:column;gap:14px;min-width:0}
+.bigpack .pct{font-family:var(--f-display);font-size:clamp(4rem,10vw,6.5rem);line-height:.9;color:var(--champagne)}
+.bigpack .pct sup{font-size:.4em;vertical-align:top;margin-left:4px;color:var(--amber)}
+.bigpack p{margin:0;color:var(--mist);max-width:40ch}
+.minis{display:grid;gap:12px}
+.mini{border-radius:18px;padding:18px 20px;border:1px solid var(--line);background:rgba(31,24,48,.6);display:flex;justify-content:space-between;gap:14px;align-items:center;min-width:0}
+.mini b{display:block;font-family:var(--f-display);font-weight:400;font-size:1.35rem}
+.mini span{font-size:.86rem;color:var(--mist)}
+.mini em{font-style:normal;font-weight:600;color:var(--amber);white-space:nowrap;font-size:.95rem}
+
+/* cierre */
+.close{margin-top:80px;border-radius:30px;padding:48px 32px;text-align:center;background:linear-gradient(135deg,#2c1c3c,#3a1f33 50%,#3b2a1c);border:1px solid var(--line);position:relative;overflow:hidden}
+.close h2{margin:0 auto;max-width:18ch}
+.close p{color:var(--mist);margin:14px auto 0;max-width:46ch}
+.close .ctas{justify-content:center}
+.num{display:flex;justify-content:center;align-items:center;gap:10px;margin-top:20px;flex-wrap:wrap;font-size:.95rem;color:var(--mist)}
+.num code{font-family:var(--f-body);font-size:1.05rem;font-weight:600;color:var(--champagne);letter-spacing:.04em;user-select:all;font-variant-numeric:tabular-nums}
+.copy{font:inherit;font-size:.85rem;border:1px solid var(--line);background:transparent;color:var(--champagne);border-radius:99px;padding:5px 12px;cursor:pointer}
+
+footer{padding-block:48px 120px;color:var(--mist);font-size:.84rem}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:22px}
+
+
+/* catálogo completo */
+.ctools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:18px}
+.search{flex:1 1 220px;min-width:0;display:flex;align-items:center;gap:8px;border:1px solid var(--line);background:rgba(255,255,255,.04);border-radius:99px;padding:0 16px}
+.search svg{width:18px;height:18px;flex:none;color:var(--mist)}
+.search input{flex:1;min-width:0;font:inherit;color:var(--champagne);background:transparent;border:0;padding:11px 0;outline:none}
+.search input::placeholder{color:var(--mist);opacity:.8}
+.search:focus-within{border-color:var(--amber)}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.chip{font:inherit;font-size:.86rem;font-weight:500;border:1px solid var(--line);background:transparent;color:var(--mist);padding:6px 14px;border-radius:99px;cursor:pointer}
+.chip[aria-pressed="true"]{border-color:var(--amber);color:var(--champagne);background:rgba(234,169,91,.14)}
+.count{font-size:.86rem;color:var(--mist);margin:0 0 12px}
+.list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.row{border:1px solid var(--line);border-radius:18px;padding:16px 18px;background:rgba(31,24,48,.65);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px 16px;min-width:0}
+.row .rn{min-width:0}
+.row .rb{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mist)}
+.row h3{font-family:var(--f-display);font-weight:400;font-size:1.35rem;line-height:1.15;margin:2px 0 4px;text-wrap:balance}
+.row .rm{display:flex;flex-wrap:wrap;gap:6px 10px;font-size:.8rem;color:var(--mist)}
+.row .rm .k{color:var(--amber)}
+.row .soon{font-size:.72rem;font-weight:600;color:var(--ink);background:var(--amber);border-radius:99px;padding:2px 8px}
+.row p{grid-column:1/-1;margin:0;font-size:.88rem;color:var(--mist)}
+.row .buy{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.addb{font:inherit;display:flex;justify-content:space-between;align-items:center;gap:8px;border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--champagne);border-radius:12px;padding:10px 12px;cursor:pointer;min-width:0;transition:border-color .2s,background .2s}
+.addb:hover{border-color:var(--champagne)}
+.addb small{font-size:.78rem;color:var(--mist)}
+.addb b{font-weight:600;font-variant-numeric:tabular-nums}
+.addb .q{display:none;min-width:22px;height:22px;border-radius:99px;background:var(--amber);color:var(--ink);font-size:.78rem;font-weight:700;place-items:center;padding:0 6px}
+.addb.on{border-color:var(--amber);background:rgba(234,169,91,.14)}
+.addb.on .q{display:inline-grid}
+.empty{color:var(--mist);text-align:center;padding:30px 0;grid-column:1/-1}
+
+/* packs con precio */
+.plist{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:16px}
+.prow{border:1px solid var(--line);border-radius:18px;padding:16px 18px;background:rgba(31,24,48,.6);display:flex;flex-direction:column;gap:6px;min-width:0}
+.prow .lim{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--amber)}
+.prow b{font-family:var(--f-display);font-weight:400;font-size:1.3rem}
+.prow span{font-size:.86rem;color:var(--mist)}
+.prow .pp{display:flex;flex-wrap:wrap;gap:6px 16px;margin-top:4px;font-variant-numeric:tabular-nums}
+.prow .pp em{font-style:normal;font-weight:600;color:var(--champagne)}
+.prow .pp s{color:var(--mist);font-size:.82rem;margin-left:4px}
+.prow a{align-self:flex-start;margin-top:6px;font-size:.88rem;font-weight:600;color:var(--amber);text-underline-offset:3px}
+
+/* barra de pedido */
+.obar{position:fixed;left:0;right:0;bottom:0;z-index:25;background:rgba(19,15,28,.92);backdrop-filter:blur(10px);border-top:1px solid var(--line);padding-top:12px;padding-bottom:calc(12px + env(safe-area-inset-bottom,0px))}
+.obar .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.obar .sum b{display:block;font-size:1.05rem;font-variant-numeric:tabular-nums}
+.obar .sum span{font-size:.82rem;color:var(--mist)}
+.obar .acts{display:flex;gap:8px;align-items:center}
+.obar .clear{font:inherit;font-size:.86rem;border:0;background:transparent;color:var(--mist);text-decoration:underline;cursor:pointer}
+.obar .btn{padding:12px 18px}
+body.has-order .float{display:none}
+body.has-order footer{padding-bottom:150px}
+
+/* botón flotante */
+.float{position:fixed;right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:20;display:flex;align-items:center;gap:10px;background:var(--wa);color:var(--wa-ink);text-decoration:none;font-weight:700;padding:14px 18px 14px 16px;border-radius:99px;box-shadow:0 14px 34px -8px rgba(0,0,0,.6),0 0 0 6px rgba(37,211,102,.14)}
+.float svg{width:24px;height:24px}
+@media (prefers-reduced-motion:no-preference){.float{animation:pulse 3.2s ease-in-out infinite}@keyframes pulse{50%{box-shadow:0 14px 34px -8px rgba(0,0,0,.6),0 0 0 12px rgba(37,211,102,.06)}}}
+
+/* entrada */
+@media (prefers-reduced-motion:no-preference){
+  .rise{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+  .d1{animation-delay:.08s}.d2{animation-delay:.18s}.d3{animation-delay:.28s}.d4{animation-delay:.38s}
+  @keyframes rise{from{transform:translateY(18px)}}
+  .bottle{animation:floaty 7s ease-in-out infinite}
+  @keyframes floaty{50%{transform:translate(-50%,-47%)}}
+}
+@media (prefers-reduced-motion:reduce){h1 em,.liquid::before{animation:none}}
+
+@media (max-width:900px){
+  .hero .wrap{grid-template-columns:1fr;gap:10px}
+  .stage{order:-1;max-width:300px;aspect-ratio:1/1}
+  .shelf{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .packs{grid-template-columns:1fr}
+  .list,.plist{grid-template-columns:1fr}
+  .strip .wrap{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:18px}
+  .fact:nth-child(3){border-left:0;padding-left:0}
+}
+@media (max-width:580px){
+  .shelf,.steps{grid-template-columns:1fr}
+  .pill .t{display:none}
+  .pill{padding:10px}
+  .float .t{display:none}
+  .float{padding:15px}
+  .close{padding:40px 20px}
+  .bigpack{padding:26px}
+  .marks{right:-56px}
+}
+</style>
+
+<div class="aura" aria-hidden="true"><i></i><i></i><i></i></div>
+
+<header class="top gut">
+  <div class="wrap">
+    <a class="logo" href="#inicio" aria-label="Stella Parfum, inicio">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1.5l2.2 7.3 7.3 2.2-7.3 2.2-2.2 7.3-2.2-7.3L2.5 11l7.3-2.2z" fill="#eaa95b"/></svg>
+      <b>Stella Parfum</b>
+    </a>
+    <nav style="display:flex;gap:8px;align-items:center"><a class="pill" href="#catalogo">Catálogo</a>
+    <a class="pill js-wa" href="#" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#25d366" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.6 2.1 1.1 1 2 1.3 2.3 1.4.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.2z"/></svg>
+      <span class="t">Escríbenos</span>
+    </a></nav>
+  </div>
+</header>
+
+<main id="inicio">
+  <section class="hero gut">
+    <div class="wrap">
+      <div>
+        <div class="eyebrow rise">Decants · La Serena y Coquimbo</div>
+        <h1 class="rise d1">Tu próximo perfume favorito, <em>en 10 ml.</em></h1>
+        <p class="lede rise d2">Fraccionamos frascos originales en decants de 7 y 10 ml. Prueba varios perfumes por lo que cuesta uno, sin comprometerte con un frasco completo.</p>
+        <div class="ctas rise d3">
+          <a class="btn btn-wa js-wa" href="#" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.6 2.1 1.1 1 2 1.3 2.3 1.4.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.2z"/></svg>
+            Pedir por WhatsApp
+          </a>
+          <a class="btn btn-ghost" href="#catalogo">Ver catálogo</a>
+        </div>
+        <div class="trust rise d4">
+          <span>Entrega en mano sin costo</span>
+          <span>Pago por transferencia o efectivo</span>
+          <span>Más de 25 perfumes</span>
+        </div>
+      </div>
+      <div class="stage" aria-hidden="true">
+        <canvas id="spark"></canvas>
+        <div class="bottle">
+          <div class="cap"></div>
+          <div class="neck"></div>
+          <div class="glass">
+            <div class="liquid"></div>
+            <div class="shine"></div>
+            <div class="label"><b>STELLA</b><small>Parfum · 10 ml</small></div>
+          </div>
+          <div class="marks">
+            <span style="top:22%" class="hi">10 ml</span>
+            <span style="top:44%">7 ml</span>
+            <span style="top:66%">5 ml</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="strip gut">
+    <div class="wrap">
+      <div class="fact"><b>7 ml</b><span>≈ 110–140 sprays</span></div>
+      <div class="fact"><b>10 ml</b><span>≈ 160–200 sprays</span></div>
+      <div class="fact"><b>−5%</b><span>llevando 3 o más decants</span></div>
+      <div class="fact"><b>−7%</b><span>en packs</span></div>
+    </div>
+  </div>
+
+  <section class="block gut" id="favoritos" aria-labelledby="h-fav">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <div class="eyebrow">La vitrina</div>
+          <h2 id="h-fav">Los más pedidos</h2>
+        </div>
+        <div class="tabs" role="group" aria-label="Elegir perfumes de hombre o de mujer">
+          <button type="button" class="tab" id="tab-h" aria-pressed="true">Hombre</button>
+          <button type="button" class="tab" id="tab-m" aria-pressed="false">Mujer</button>
+        </div>
+      </div>
+      <div class="shelf" id="shelf"></div>
+      <div class="more"><a class="btn btn-ghost" href="#catalogo">Ver el catálogo completo</a></div>
+    </div>
+  </section>
+
+
+  <section class="block gut" id="catalogo" aria-labelledby="h-cat">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <div class="eyebrow">Todo lo que tenemos</div>
+          <h2 id="h-cat">Catálogo completo</h2>
+        </div>
+        <div class="tabs" role="group" aria-label="Catálogo de hombre o de mujer">
+          <button type="button" class="tab" id="ctab-h" aria-pressed="true">Hombre</button>
+          <button type="button" class="tab" id="ctab-m" aria-pressed="false">Mujer</button>
+        </div>
+      </div>
+      <div class="ctools">
+        <label class="search" for="q">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M20 20l-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <input id="q" type="search" placeholder="Busca por perfume, marca o nota (vainilla, mango…)" autocomplete="off">
+        </label>
+      </div>
+      <div class="chips" id="fams" role="group" aria-label="Filtrar por familia olfativa"></div>
+      <p class="count" id="count"></p>
+      <div class="list" id="list"></div>
+    </div>
+  </section>
+
+  <section class="block gut" aria-labelledby="h-how">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <div class="eyebrow">Así de simple</div>
+          <h2 id="h-how">Cómo pedir</h2>
+        </div>
+      </div>
+      <div class="steps">
+        <div class="step"><b>Elige</b><p>Revisa la vitrina o pídenos el catálogo completo con notas y temporada de cada perfume.</p></div>
+        <div class="step"><b>Escríbenos</b><p>Mándanos por WhatsApp qué perfumes quieres y en qué tamaño: 7 o 10 ml.</p></div>
+        <div class="step"><b>Confirmamos</b><p>Te enviamos el total con descuentos aplicados y coordinamos el día de entrega.</p></div>
+        <div class="step"><b>Recibe</b><p>Entrega en mano en La Serena y Coquimbo. Pagas por transferencia o en efectivo.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block gut" aria-labelledby="h-packs">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <div class="eyebrow">Para probar más</div>
+          <h2 id="h-packs">Arma tu pack</h2>
+        </div>
+      </div>
+      <div class="packs">
+        <div class="bigpack">
+          <div class="pct">7<sup>%</sup></div>
+          <p>de descuento armando tu propio pack de 3 o más decants. Combina perfumes de hombre y mujer, y mezcla 7 y 10 ml.</p>
+          <a class="btn btn-wa js-wa" data-msg="Hola, quiero armar un pack de decants." href="#" target="_blank" rel="noopener" style="align-self:flex-start">Armar mi pack</a>
+        </div>
+        <div class="minis" id="packtop"></div>
+      </div>
+      <div class="plist" id="plist"></div>
+    </div>
+  </section>
+
+  <section class="gut" aria-labelledby="h-close">
+    <div class="wrap">
+      <div class="close">
+        <div class="eyebrow" style="justify-content:center">Stella Parfum</div>
+        <h2 id="h-close">¿No sabes cuál elegir? Te ayudamos.</h2>
+        <p>Cuéntanos qué perfumes te gustan, para qué ocasión lo buscas y te recomendamos dos o tres para probar.</p>
+        <div class="ctas"><a class="btn btn-wa js-wa" data-msg="Hola, ¿me ayudan a elegir un perfume?" href="#" target="_blank" rel="noopener">Pedir recomendación</a></div>
+        <div class="num">WhatsApp <code id="wa-num"></code><button type="button" class="copy" id="copy">Copiar número</button></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="gut">
+  <div class="wrap">
+    <span>© Stella Parfum · La Serena y Coquimbo</span>
+    <span>Decants fraccionados de frascos originales. No somos distribuidores oficiales de las marcas.</span>
+  </div>
+</footer>
+
+<div class="obar gut" id="obar" hidden>
+  <div class="wrap">
+    <div class="sum" aria-live="polite"><b id="osum"></b><span id="oinfo"></span></div>
+    <div class="acts"><button type="button" class="clear" id="oclear">Vaciar</button><a class="btn btn-wa" id="osend" href="#" target="_blank" rel="noopener">Enviar pedido</a></div>
+  </div>
+</div>
+
+<a class="float js-wa" href="#" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.6 2.1 1.1 1 2 1.3 2.3 1.4.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.2z"/></svg>
+  <span class="t">WhatsApp</span>
+</a>
+
+<script>
+(function(){
+  /* ---- Edita aquí ---- */
+  const WHATSAPP = "56967856628"; // tu número: 56 + 9 + 8 dígitos, sin + ni espacios
+  const SALUDO = "Hola, vi la página de Stella Parfum y quiero hacer un pedido.";
+  const PERFUMES = [
+    {g:"h", n:"Le Mâle Elixir", m:"Jean Paul Gaultier", c:"Parfum", f:"Dulce", t:"Otoño-invierno", notas:["Lavanda","Vainilla","Miel","Tabaco"], p7:13000, p10:18000, col:"#d99a3e"},
+    {g:"h", n:"Vulcan Feu", m:"French Avenue", c:"EDP", f:"Frutal", t:"Primavera-verano", notas:["Mango","Jengibre","Praliné","Ámbar gris"], p7:6500, p10:9000, col:"#e3735a"},
+    {g:"h", n:"Liquid Brun Limited Edition", m:"French Avenue", c:"Extrait de Parfum", f:"Dulce", t:"Otoño-invierno", notas:["Cardamomo","Azahar","Vainilla","Haba tonka"], p7:6500, p10:9000, col:"#a8642e"},
+    {g:"h", n:"Amber Oud Gold Edition", m:"Al Haramain", c:"EDP", f:"Dulce", t:"Todo el año", notas:["Bergamota","Melón","Ámbar","Vainilla"], p7:8000, p10:11000, col:"#e0b14c"},
+    {g:"h", n:"Eros Energy", m:"Versace", c:"EDP", f:"Cítrico", t:"Primavera-verano", notas:["Naranja sanguina","Pomelo","Pimienta rosa"], p7:13000, p10:18000, col:"#4f9bd4"},
+    {g:"h", n:"Asad Bourbon", m:"Lattafa", c:"EDP", f:"Dulce", t:"Otoño-invierno", notas:["Ciruela","Cacao","Vainilla","Vetiver"], p7:7500, p10:10000, col:"#9a4a3a"},
+    {g:"m", n:"La Vie Est Belle Iris Absolu", m:"Lancôme", c:"EDP", f:"Floral", t:"Todo el año", notas:["Grosella negra","Iris","Jazmín","Pachulí"], p7:15000, p10:20000, col:"#b38bd6"},
+    {g:"m", n:"Sì", m:"Giorgio Armani", c:"EDP", f:"Frutal", t:"Todo el año", notas:["Grosella negra","Rosa","Vainilla"], p7:13500, p10:20000, col:"#d8678a"},
+    {g:"m", n:"Born in Roma Yellow Dream", m:"Valentino", c:"EDP", f:"Floral", t:"Primavera-verano", notas:["Limón","Rosa damascena","Almizcle"], p7:12500, p10:17500, col:"#e8c64f"},
+    {g:"m", n:"Blossom", m:"Jimmy Choo", c:"EDP", f:"Floral", t:"Primavera-verano", notas:["Frambuesa","Guisante de olor","Rosa"], p7:10500, p10:15000, col:"#ef8fa6"},
+    {g:"m", n:"212 Heroes Forever Young", m:"Carolina Herrera", c:"EDP", f:"Floral", t:"Primavera-verano", notas:["Frambuesa","Azahar","Sándalo"], p7:15000, p10:20000, col:"#e46f6f"},
+    {g:"m", n:"Amor Amor", m:"Cacharel", c:"EDT", f:"Frutal", t:"Primavera-verano", notas:["Naranja sanguina","Jazmín","Vainilla"], p7:4000, p10:5500, col:"#e0474f"}
+  ];
+  /* Catálogo completo (copiado del catálogo web) */
+  const CATALOGO = [{"id":"lme","g":"h","n":"Le Mâle Elixir","m":"Jean Paul Gaultier","c":"Parfum","f":"Dulce","t":"Otoño-invierno 5°-18°","notas":"Lavanda, menta, vainilla, benjuí, miel, haba tonka y tabaco.","p7":13000,"p10":18000,"aviso":""},{"id":"1m","g":"h","n":"1 Million","m":"Rabanne","c":"EDT","f":"Especiado","t":"Otoño-invierno 8°-20°","notas":"Pomelo, menta, canela, rosa, cuero y ámbar.","p7":13000,"p10":18000,"aviso":""},{"id":"star","g":"h","n":"Starwalker","m":"Montblanc","c":"EDT","f":"Fresco","t":"Primavera-verano 18°-30°","notas":"Bergamota, mandarina, bambú, nuez moscada, sándalo y almizcle.","p7":9000,"p10":12000,"aviso":""},{"id":"cdn","g":"h","n":"Club de Nuit Intense Man","m":"Armaf","c":"EDT","f":"Fresco","t":"Todo el año 10°-30°","notas":"Limón, piña, grosella negra, abedul ahumado y almizcle.","p7":6500,"p10":9000,"aviso":""},{"id":"vulcan","g":"h","n":"Vulcan Feu","m":"French Avenue","c":"EDP","f":"Frutal","t":"Primavera-verano 20°-32°","notas":"Mango, limón, jengibre, pimienta rosa, praliné, cedro y ámbar gris.","p7":6500,"p10":9000,"aviso":""},{"id":"odyssey","g":"h","n":"Odyssey Mandarin Sky","m":"Armaf","c":"EDP","f":"Cítrico","t":"Todo el año 10°-28°","notas":"Mandarina, naranja, azafrán, salvia, caramelo, haba tonka, vetiver y cedro.","p7":6500,"p10":9000,"aviso":""},{"id":"heroes","g":"h","n":"212 Heroes Forever Young","m":"Carolina Herrera","c":"EDT","f":"Frutal","t":"Primavera-verano 18°-30°","notas":"Pera, jengibre, limón, salvia, geranio, cuero y almizcle.","p7":12000,"p10":16000,"aviso":""},{"id":"erosenergy","g":"h","n":"Eros Energy","m":"Versace","c":"EDP","f":"Cítrico","t":"Primavera-verano 20°-35°","notas":"Bergamota, naranja sanguina, lima, pomelo, pimienta rosa, grosella negra, pachulí y almizcle.","p7":13000,"p10":18000,"aviso":""},{"id":"ralph","g":"m","n":"Ralph","m":"Ralph Lauren","c":"EDT","f":"Floral","t":"Primavera-verano 15°-28°","notas":"Manzana, mandarina, osmanto, magnolia, fresia, violeta, almizcle e iris.","p7":10000,"p10":14000,"aviso":""},{"id":"hawas","g":"h","n":"Hawas","m":"Rasasi","c":"EDP","f":"Fresco","t":"Primavera-verano 18°-35°","notas":"Manzana, bergamota, limón, canela, ciruela, cardamomo, ámbar gris y almizcle.","p7":6000,"p10":8500,"aviso":""},{"id":"hawasblack","g":"h","n":"Hawas Black","m":"Rasasi","c":"EDP","f":"Fresco","t":"Todo el año 10°-28°","notas":"Bergamota, piña, pomelo, cedro, pachulí, jazmín, ámbar y musgo de roble.","p7":7500,"p10":10000,"aviso":""},{"id":"profondo","g":"h","n":"Acqua di Giò Profondo","m":"Giorgio Armani","c":"Parfum","f":"Fresco","t":"Primavera-verano 20°-35°","notas":"Notas marinas, bergamota, siempreviva, lavanda, hoja de violeta, pachulí y cistus.","p7":13500,"p10":19000,"aviso":""},{"id":"amberoud","g":"h","n":"Amber Oud Gold Edition","m":"Al Haramain","c":"EDP","f":"Dulce","t":"Todo el año 8°-25°","notas":"Bergamota, notas verdes, melón, piña, ámbar, vainilla, almizcle y maderas.","p7":8000,"p10":11000,"aviso":""},{"id":"liquidbrun","g":"h","n":"Liquid Brun Limited Edition","m":"French Avenue","c":"Extrait de Parfum","f":"Dulce","t":"Otoño-invierno 5°-18°","notas":"Cardamomo, lavanda, cítricos, azahar, guayaco, rosa, vainilla, haba tonka y ámbar.","p7":6500,"p10":9000,"aviso":""},{"id":"scandal","g":"h","n":"Scandal Pour Homme Intense","m":"Jean Paul Gaultier","c":"EDP","f":"Especiado","t":"Otoño-invierno 5°-20°","notas":"Salvia, cuero y vetiver.","p7":10500,"p10":14500,"aviso":""},{"id":"asad","g":"h","n":"Asad","m":"Lattafa","c":"EDP","f":"Especiado","t":"Otoño-invierno 5°-18°","notas":"Pimienta negra, piña, tabaco, café, iris, vainilla, ámbar y benjuí.","p7":7500,"p10":10000,"aviso":""},{"id":"asadelixir","g":"h","n":"Asad Elixir","m":"Lattafa","c":"EDP","f":"Especiado","t":"Otoño-invierno 5°-18°","notas":"Pimienta rosa, azafrán, pomelo, tabaco, vainilla, cedro, incienso y pachulí.","p7":7500,"p10":10000,"aviso":""},{"id":"asadzanzibar","g":"h","n":"Asad Zanzibar","m":"Lattafa","c":"EDP","f":"Fresco","t":"Primavera-verano 20°-32°","notas":"Pimienta negra, lavanda marina, agua de coco, iris, sal, incienso y vainilla.","p7":7500,"p10":10000,"aviso":""},{"id":"asadbourbon","g":"h","n":"Asad Bourbon","m":"Lattafa","c":"EDP","f":"Dulce","t":"Otoño-invierno 5°-18°","notas":"Ciruela mirabel, pimienta rosa, lavanda, nuez moscada, cacao, vainilla, vetiver y ámbar.","p7":7500,"p10":10000,"aviso":""},{"id":"212fymujer","g":"m","n":"212 Heroes Forever Young","m":"Carolina Herrera","c":"EDP","f":"Floral","t":"Primavera-verano 15°-28°","notas":"Frambuesa, mandarina, azahar, jazmín sambac, cedro y sándalo.","p7":15000,"p10":20000,"aviso":""},{"id":"irisabsolu","g":"m","n":"La Vie Est Belle Iris Absolu","m":"Lancôme","c":"EDP","f":"Floral","t":"Todo el año 8°-25°","notas":"Grosella negra, higo, azahar, iris, jazmín sambac, acorde gourmand y pachulí.","p7":15000,"p10":20000,"aviso":""},{"id":"9pmelixir","g":"h","n":"9PM Elixir","m":"Afnan","c":"Parfum","f":"Especiado","t":"Otoño-invierno 5°-18°","notas":"Cardamomo, nuez moscada, elemi, cuero, lavanda, vainilla, ládano y pachulí.","p7":5500,"p10":7500,"aviso":""},{"id":"labomba","g":"m","n":"La Bomba","m":"Carolina Herrera","c":"EDP","f":"Floral","t":"Primavera-verano 18°-32°","notas":"Pitahaya, piña, mandarina, frangipani, peonía, jazmín sambac, vainilla, pachulí y haba tonka.","p7":15000,"p10":20000,"aviso":"Por llegar"},{"id":"yellowdream","g":"m","n":"Born in Roma Yellow Dream","m":"Valentino","c":"EDP","f":"Floral","t":"Primavera-verano 18°-30°","notas":"Limón italiano Primo Fiore, rosa damascena y almizcle blanco.","p7":12500,"p10":17500,"aviso":""},{"id":"si","g":"m","n":"Sì","m":"Giorgio Armani","c":"EDP","f":"Frutal","t":"Todo el año 8°-25°","notas":"Grosella negra, rosa de mayo, fresia, vainilla, pachulí y maderas.","p7":13500,"p10":20000,"aviso":""},{"id":"lanuit","g":"h","n":"La Nuit de L'Homme","m":"Yves Saint Laurent","c":"EDT","f":"Especiado","t":"Otoño-invierno 5°-20°","notas":"Cardamomo, bergamota, lavanda, cedro, vetiver y comino.","p7":9500,"p10":13000,"aviso":""},{"id":"amoramor","g":"m","n":"Amor Amor","m":"Cacharel","c":"EDT","f":"Frutal","t":"Primavera-verano 18°-30°","notas":"Naranja sanguina, grosella negra, jazmín, rosa, vainilla y almizcle.","p7":4000,"p10":5500,"aviso":""},{"id":"poloblue","g":"h","n":"Polo Blue","m":"Ralph Lauren","c":"EDT","f":"Fresco","t":"Primavera-verano 18°-32°","notas":"Melón, pepino, mandarina, albahaca, salvia, gamuza y almizcle.","p7":9500,"p10":13000,"aviso":""},{"id":"blossom","g":"m","n":"Blossom","m":"Jimmy Choo","c":"EDP","f":"Floral","t":"Primavera-verano 15°-28°","notas":"Cítricos, frutos rojos, frambuesa, guisante de olor, rosa, sándalo y almizcle blanco.","p7":10500,"p10":15000,"aviso":""}];
+  const PACKS = [{"n":"Pack Degustación","d":"5 perfumes para encontrar tu favorito.","lim":0,"gen":"hombre","ids":["Le Mâle Elixir","1 Million","Starwalker","Club de Nuit Intense Man","Vulcan Feu"],"p7":44500,"p10":61500,"f10":66000,"f7":48000},{"n":"Pack Noche","d":"Dulces y especiados para salir.","lim":0,"gen":"hombre","ids":["Le Mâle Elixir","1 Million","Vulcan Feu"],"p7":30000,"p10":42000,"f10":45000,"f7":32500},{"n":"Pack Diario","d":"Frescos para la oficina y el día.","lim":0,"gen":"hombre","ids":["Starwalker","Club de Nuit Intense Man"],"p7":14500,"p10":19500,"f10":21000,"f7":15500},{"n":"Clásicos de Noche","d":"Tres clásicos de diseñador para salir.","lim":1,"gen":"hombre","ids":["La Nuit de L'Homme","Polo 67 EDP","Polo Blue"],"p7":0,"p10":36500,"f10":39000,"f7":0},{"n":"Verano Polo","d":"Frescos y frutales para el calor.","lim":2,"gen":"hombre","ids":["Polo Blue","Vulcan Feu","Hawas"],"p7":0,"p10":28500,"f10":30500,"f7":0},{"n":"Oficina Polo","d":"Versátiles para el día a día.","lim":2,"gen":"hombre","ids":["Polo 67 EDP","Club de Nuit Intense Man","Hawas"],"p7":0,"p10":28500,"f10":30500,"f7":0},{"n":"Polo + Ícono","d":"Dos Polo y el Le Mâle Elixir.","lim":3,"gen":"hombre","ids":["Polo 67 EDT","Polo Blue","Le Mâle Elixir"],"p7":0,"p10":40000,"f10":43000,"f7":0},{"n":"Ella Italiana","d":"Tres perfumes de mujer, de lo elegante a lo frutal.","lim":1,"gen":"mujer","ids":["Sì","Born in Roma Yellow Dream","Amor Amor"],"p7":0,"p10":40000,"f10":43000,"f7":0},{"n":"Pareja Sì","d":"Sì para ella y La Nuit de L'Homme para él.","lim":3,"gen":"ambos","ids":["Sì","La Nuit de L'Homme"],"p7":0,"p10":30500,"f10":33000,"f7":0},{"n":"Pareja Donna","d":"Born in Roma Yellow Dream para ella y 1 Million para él.","lim":3,"gen":"ambos","ids":["Born in Roma Yellow Dream","1 Million"],"p7":0,"p10":33000,"f10":35500,"f7":0}];
+  /* --------------------- */
+
+  const clp = n => "$" + n.toLocaleString("es-CL");
+  const wa = msg => "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(msg);
+  const pretty = n => n.length === 11 ? "+" + n.slice(0,2) + " " + n.slice(2,3) + " " + n.slice(3,7) + " " + n.slice(7) : "+" + n;
+
+  document.querySelectorAll(".js-wa").forEach(a => a.href = wa(a.dataset.msg || SALUDO));
+  document.getElementById("wa-num").textContent = pretty(WHATSAPP);
+  document.getElementById("copy").addEventListener("click", e => {
+    const b = e.currentTarget, done = () => { b.textContent = "Copiado"; setTimeout(() => b.textContent = "Copiar número", 1800); };
+    try { navigator.clipboard.writeText("+" + WHATSAPP).then(done, sel); } catch(err){ sel(); }
+    function sel(){ const r = document.createRange(); r.selectNodeContents(document.getElementById("wa-num")); const s = getSelection(); s.removeAllRanges(); s.addRange(r); }
+  });
+
+  const icon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.6 2.1 1.1 1 2 1.3 2.3 1.4.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.2z"/></svg>';
+  const esc = s => s.replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+  let gen = "h";
+  try { gen = localStorage.getItem("stella-gen") === "m" ? "m" : "h"; } catch(e){}
+  function render(){
+    document.getElementById("tab-h").setAttribute("aria-pressed", String(gen==="h"));
+    document.getElementById("tab-m").setAttribute("aria-pressed", String(gen==="m"));
+    document.getElementById("shelf").innerHTML = PERFUMES.filter(p => p.g===gen).map(p => `
+      <article class="card">
+        <div class="orb" style="background:${p.col}"></div>
+        <div class="top"><span class="fam">${p.f}</span><span class="season">${p.t}</span></div>
+        <div><div class="brand">${esc(p.m)}</div><h3>${esc(p.n)}</h3><div class="conc">${esc(p.c)}</div></div>
+        <ul class="notes">${p.notas.map(x => `<li>${esc(x)}</li>`).join("")}</ul>
+        <div class="prices">
+          <div class="price"><small>7 ml</small><b>${clp(p.p7)}</b></div>
+          <div class="price"><small>10 ml</small><b>${clp(p.p10)}</b></div>
+        </div>
+        <a class="ask" href="${wa("Hola, quiero el " + p.n + " de " + p.m + ". ¿Lo tienen disponible?")}" target="_blank" rel="noopener">${icon}Pedir este perfume</a>
+      </article>`).join("");
+  }
+  const setGen = g => { gen = g; try { localStorage.setItem("stella-gen", g); } catch(e){} render(); };
+  document.getElementById("tab-h").addEventListener("click", () => setGen("h"));
+  document.getElementById("tab-m").addEventListener("click", () => setGen("m"));
+  render();
+
+
+  /* ---- catálogo completo + pedido ---- */
+  let cgen = "h", cfam = "Todas", query = "", order = {};
+  const norm = t => t.normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase();
+  const byId = Object.fromEntries(CATALOGO.map(p=>[p.id,p]));
+  function renderCat(){
+    document.getElementById("ctab-h").setAttribute("aria-pressed", String(cgen==="h"));
+    document.getElementById("ctab-m").setAttribute("aria-pressed", String(cgen==="m"));
+    const base = CATALOGO.filter(p => p.g===cgen);
+    const fams = ["Todas", ...new Set(base.map(p=>p.f))];
+    if (!fams.includes(cfam)) cfam = "Todas";
+    document.getElementById("fams").innerHTML = fams.map(f => `<button type="button" class="chip" data-f="${f}" aria-pressed="${f===cfam}">${f}</button>`).join("");
+    const q = norm(query.trim());
+    const list = base.filter(p => (cfam==="Todas" || p.f===cfam) && (!q || norm(p.n+" "+p.m+" "+p.notas+" "+p.f).includes(q))).sort((a,b)=>a.p10-b.p10);
+    document.getElementById("count").textContent = list.length + (list.length===1 ? " perfume" : " perfumes") + " · ordenados de menor a mayor precio";
+    const btn = (p,ml) => { const k=p.id+"|"+ml, n=order[k]||0;
+      return `<button type="button" class="addb${n?" on":""}" data-k="${k}" aria-label="Agregar ${esc(p.n)} de ${ml} ml al pedido"><small>${ml} ml</small><b>${clp(p["p"+ml])}</b><span class="q">${n}</span></button>`; };
+    document.getElementById("list").innerHTML = list.length ? list.map(p => `
+      <article class="row">
+        <div class="rn"><div class="rb">${esc(p.m)} · ${esc(p.c)}</div><h3>${esc(p.n)}</h3>
+          <div class="rm"><span class="k">${p.f}</span><span>${p.t}</span>${p.aviso?`<span class="soon">${esc(p.aviso)}</span>`:""}</div></div>
+        <p>${esc(p.notas)}</p>
+        <div class="buy">${btn(p,7)}${btn(p,10)}</div>
+      </article>`).join("") : `<p class="empty">No encontramos perfumes con esa búsqueda. Prueba con otra nota o escríbenos.</p>`;
+  }
+  document.getElementById("ctab-h").addEventListener("click", () => { cgen="h"; renderCat(); });
+  document.getElementById("ctab-m").addEventListener("click", () => { cgen="m"; renderCat(); });
+  document.getElementById("q").addEventListener("input", e => { query = e.target.value; renderCat(); });
+  document.getElementById("fams").addEventListener("click", e => { const b=e.target.closest(".chip"); if (b){ cfam=b.dataset.f; renderCat(); } });
+  document.getElementById("list").addEventListener("click", e => { const b=e.target.closest(".addb"); if (!b) return; order[b.dataset.k]=(order[b.dataset.k]||0)+1; renderCat(); renderOrder(); });
+  document.getElementById("oclear").addEventListener("click", () => { order={}; renderCat(); renderOrder(); });
+  function renderOrder(){
+    const items = Object.entries(order).filter(([,n])=>n>0);
+    const count = items.reduce((t,[,n])=>t+n,0);
+    const sub = items.reduce((t,[k,n])=>{ const [id,ml]=k.split("|"); return t+byId[id]["p"+ml]*n; },0);
+    const disc = count>=3 ? sub - Math.round(sub*0.95/500)*500 : 0;
+    document.getElementById("obar").hidden = !count;
+    document.body.classList.toggle("has-order", count>0);
+    if (!count) return;
+    document.getElementById("osum").textContent = count+(count===1?" decant · ":" decants · ")+clp(sub-disc);
+    document.getElementById("oinfo").textContent = disc ? "Incluye 5% de descuento (−"+clp(disc)+")" : "Suma "+(3-count)+" más para 5% de descuento";
+    const lines = items.map(([k,n])=>{ const [id,ml]=k.split("|"), p=byId[id]; return "• "+n+" × "+p.n+" ("+p.m+") "+ml+" ml — "+clp(p["p"+ml]*n); });
+    const msg = ["Hola, quiero hacer este pedido en Stella Parfum:","",...lines,"",disc?"Descuento 5%: −"+clp(disc):null,"Total: "+clp(sub-disc)].filter(x=>x!==null).join("\n");
+    document.getElementById("osend").href = wa(msg);
+  }
+
+  /* packs con precio */
+  const pk = PACKS.filter(p=>!p.lim), pl = PACKS.filter(p=>p.lim);
+  document.getElementById("packtop").innerHTML = pk.map(p => `<div class="mini"><div><b>${esc(p.n.replace("Pack ",""))}</b><span>${esc(p.ids.join(" · "))}</span></div><em>desde ${clp(p.p7)}</em></div>`).join("");
+  document.getElementById("plist").innerHTML = PACKS.map(p => `
+    <div class="prow">${p.lim?`<div class="lim">Edición limitada · ${p.lim===1?"queda 1":"quedan "+p.lim}</div>`:`<div class="lim" style="color:var(--mist)">Pack armado</div>`}
+      <b>${esc(p.n)}</b><span>${esc(p.d)} ${esc(p.ids.join(" · "))}.</span>
+      <div class="pp">${p.p7?`<span><em>${clp(p.p7)}</em><s>${clp(p.f7)}</s> · ${p.ids.length} × 7 ml</span>`:""}<span><em>${clp(p.p10)}</em><s>${clp(p.f10)}</s> · ${p.ids.length} × 10 ml</span></div>
+      <a href="${wa("Hola, quiero el "+p.n+" de Stella Parfum.")}" target="_blank" rel="noopener">Pedir este pack</a>
+    </div>`).join("");
+  renderCat(); renderOrder();
+
+  /* destellos alrededor del frasco */
+  const cv = document.getElementById("spark"), ctx = cv.getContext("2d");
+  const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let W, H, pts = [];
+  function size(){
+    const r = cv.getBoundingClientRect(), d = Math.min(devicePixelRatio || 1, 2);
+    W = r.width; H = r.height; cv.width = W*d; cv.height = H*d; ctx.setTransform(d,0,0,d,0,0);
+    pts = Array.from({length:46}, () => seed({}, true));
+  }
+  function seed(p, any){
+    p.x = W*(.2 + Math.random()*.6); p.y = any ? Math.random()*H : H*(.35 + Math.random()*.2);
+    p.r = .6 + Math.random()*1.8; p.vy = -(.12 + Math.random()*.35); p.vx = (Math.random()-.5)*.25;
+    p.a = Math.random(); p.h = Math.random() < .6 ? "234,169,91" : "244,231,210"; return p;
+  }
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    for (const p of pts){
+      if (!still){ p.y += p.vy; p.x += p.vx + Math.sin(p.y/30)*.15; p.a += .012; if (p.y < -5) seed(p); }
+      const o = .25 + .55*Math.abs(Math.sin(p.a));
+      ctx.beginPath(); ctx.fillStyle = `rgba(${p.h},${o})`; ctx.arc(p.x,p.y,p.r,0,6.283); ctx.fill();
+    }
+    if (!still) requestAnimationFrame(draw);
+  }
+  size(); draw();
+  addEventListener("resize", () => { size(); if (still) draw(); });
+})();
+</script>
+
+</body>
+</html>
