@@ -208,6 +208,22 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
 .prow .pp s{color:var(--mist);font-size:.82rem;margin-left:4px}
 .prow a{align-self:flex-start;margin-top:6px;font-size:.88rem;font-weight:600;color:var(--amber);text-underline-offset:3px}
 
+
+/* imágenes de perfume */
+.visual{position:relative;margin:-22px -22px 0;aspect-ratio:5/4;max-width:calc(100% + 44px);display:grid;place-items:center;overflow:hidden;border-bottom:1px solid var(--line)}
+.visual.photo{background:#fff}
+.visual.photo img{width:100%;height:100%;object-fit:contain;padding:14px;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.card:hover .visual img,.card:hover .visual svg{transform:scale(1.05)}
+.visual svg{width:auto;height:88%;max-width:100%;transition:transform .5s cubic-bezier(.2,.7,.2,1);filter:drop-shadow(0 18px 18px rgba(0,0,0,.45))}
+.visual .badge{position:absolute;left:14px;bottom:12px;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--champagne);background:rgba(19,15,28,.6);backdrop-filter:blur(6px);border:1px solid rgba(244,231,210,.25);padding:4px 9px;border-radius:99px}
+.visual.photo .badge{color:var(--ink);background:rgba(255,255,255,.75);border-color:rgba(0,0,0,.08)}
+.row{grid-template-columns:76px minmax(0,1fr)}
+.row .thumb{grid-row:span 1;width:76px;height:96px;border-radius:14px;overflow:hidden;display:grid;place-items:center;border:1px solid var(--line)}
+.row .thumb.photo{background:#fff}
+.row .thumb img{width:100%;height:100%;object-fit:contain;padding:4px}
+.row .thumb svg{height:88%;width:auto;filter:drop-shadow(0 6px 8px rgba(0,0,0,.4))}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;vertical-align:1px}
+
 /* barra de pedido */
 .obar{position:fixed;left:0;right:0;bottom:0;z-index:25;background:rgba(19,15,28,.92);backdrop-filter:blur(10px);border-top:1px solid var(--line);padding-top:12px;padding-bottom:calc(12px + env(safe-area-inset-bottom,0px))}
 .obar .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
@@ -438,8 +454,8 @@ body.has-order footer{padding-bottom:150px}
   const WHATSAPP = "56967856628"; // tu número: 56 + 9 + 8 dígitos, sin + ni espacios
   const SALUDO = "Hola, vi la página de Stella Parfum y quiero hacer un pedido.";
   const PERFUMES = [
-    {g:"h", n:"Le Mâle Elixir", m:"Jean Paul Gaultier", c:"Parfum", f:"Dulce", t:"Otoño-invierno", notas:["Lavanda","Vainilla","Miel","Tabaco"], p7:13000, p10:18000, col:"#d99a3e"},
-    {g:"h", n:"Vulcan Feu", m:"French Avenue", c:"EDP", f:"Frutal", t:"Primavera-verano", notas:["Mango","Jengibre","Praliné","Ámbar gris"], p7:6500, p10:9000, col:"#e3735a"},
+    {g:"h", n:"Le Mâle Elixir", m:"Jean Paul Gaultier", c:"Parfum", f:"Dulce", t:"Otoño-invierno", notas:["Lavanda","Vainilla","Miel","Tabaco"], p7:13000, p10:18000, col:"#d99a3e", img:"img/lme-frasco.jpg"},
+    {g:"h", n:"Vulcan Feu", m:"French Avenue", c:"EDP", f:"Frutal", t:"Primavera-verano", notas:["Mango","Jengibre","Praliné","Ámbar gris"], p7:6500, p10:9000, col:"#e3735a", img:"img/vulcan-frasco.jpg"},
     {g:"h", n:"Liquid Brun Limited Edition", m:"French Avenue", c:"Extrait de Parfum", f:"Dulce", t:"Otoño-invierno", notas:["Cardamomo","Azahar","Vainilla","Haba tonka"], p7:6500, p10:9000, col:"#a8642e"},
     {g:"h", n:"Amber Oud Gold Edition", m:"Al Haramain", c:"EDP", f:"Dulce", t:"Todo el año", notas:["Bergamota","Melón","Ámbar","Vainilla"], p7:8000, p10:11000, col:"#e0b14c"},
     {g:"h", n:"Eros Energy", m:"Versace", c:"EDP", f:"Cítrico", t:"Primavera-verano", notas:["Naranja sanguina","Pomelo","Pimienta rosa"], p7:13000, p10:18000, col:"#4f9bd4"},
@@ -470,6 +486,41 @@ body.has-order footer{padding-bottom:150px}
 
   const icon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.6 2.1 1.1 1 2 1.3 2.3 1.4.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.2z"/></svg>';
   const esc = s => s.replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+  /* Ilustración del decant: frasco atomizador de 10 ml con el color de la familia del perfume */
+  const FAM = {Dulce:["#e2a04a","#9a4f22"],Especiado:["#d0683e","#7a2a22"],Fresco:["#69b8d6","#24607e"],Frutal:["#ef7f62","#a63a52"],"Cítrico":["#f2cf55","#c27a1f"],Floral:["#f09ab8","#9a4a8a"]};
+  const FOTOS = {lme:"img/lme-frasco.jpg", vulcan:"img/vulcan-frasco.jpg"};
+  const hash = t => { let h=0; for (const c of t) h=(h*31+c.charCodeAt(0))|0; return Math.abs(h); };
+  function bottle(p){
+    const [a,b] = FAM[p.f] || ["#e2a04a","#7a3a2a"], h = hash(p.n), id = "g"+h;
+    const cap = ["#d9b46a","#c9ccd4","#2a2433","#d9b46a"][h%4], capHi = cap==="#2a2433" ? "#5b5266" : "#fff6e2";
+    const fill = 46 + (h%5)*6, short = p.n.length>16 ? p.n.split(" ").slice(0,2).join(" ") : p.n;
+    const lbl = esc(short.length>14 ? short.slice(0,13)+"…" : short);
+    return `<svg viewBox="0 0 120 260" role="img" aria-label="Decant de ${esc(p.n)}">
+      <defs><linearGradient id="${id}l" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${a}"/><stop offset="1" stop-color="${b}"/></linearGradient>
+      <linearGradient id="${id}c" x1="0" x2="1"><stop offset="0" stop-color="${cap}"/><stop offset=".35" stop-color="${capHi}"/><stop offset=".6" stop-color="${cap}"/><stop offset="1" stop-color="${cap}"/></linearGradient>
+      <linearGradient id="${id}g" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity=".28"/><stop offset=".3" stop-color="#fff" stop-opacity=".06"/><stop offset=".8" stop-color="#fff" stop-opacity=".16"/><stop offset="1" stop-color="#fff" stop-opacity=".04"/></linearGradient></defs>
+      <rect x="44" y="6" width="32" height="44" rx="6" fill="url(#${id}c)"/>
+      <rect x="50" y="50" width="20" height="12" fill="${cap}" opacity=".85"/>
+      <rect x="30" y="62" width="60" height="190" rx="14" fill="url(#${id}g)" stroke="#fff" stroke-opacity=".35"/>
+      <rect x="31.5" y="${62+190*(1-fill/100)}" width="57" height="${190*fill/100-1.5}" rx="12.5" fill="url(#${id}l)" opacity=".95"/>
+      <rect x="38" y="70" width="6" height="170" rx="3" fill="#fff" opacity=".35"/>
+      <rect x="36" y="112" width="48" height="58" rx="3" fill="#130f1c" fill-opacity=".78" stroke="#f4e7d2" stroke-opacity=".5"/>
+      <text x="60" y="131" text-anchor="middle" font-family="DM Serif Display, Georgia, serif" font-size="9" fill="#f4e7d2">STELLA</text>
+      <text x="60" y="146" text-anchor="middle" font-family="Outfit, sans-serif" font-size="6.2" fill="#f4e7d2">${lbl}</text>
+      <text x="60" y="160" text-anchor="middle" font-family="Outfit, sans-serif" font-size="5" letter-spacing="1" fill="#d2c8df">10 ML</text>
+    </svg>`;
+  }
+  function bg(p){ const [a,b] = FAM[p.f] || ["#e2a04a","#7a3a2a"]; return `background:radial-gradient(80% 90% at 50% 40%,${a}55,transparent 70%),radial-gradient(60% 60% at 85% 10%,${b}66,transparent 70%),var(--velvet-2)`; }
+  function visual(p){
+    const src = p.img || FOTOS[p.id];
+    return src ? `<div class="visual photo"><img src="${src}" alt="Frasco de ${esc(p.n)}" loading="lazy"><span class="badge">Foto del frasco</span></div>`
+               : `<div class="visual" style="${bg(p)}">${bottle(p)}<span class="badge">Decant Stella</span></div>`;
+  }
+  function thumb(p){
+    const src = FOTOS[p.id];
+    return src ? `<div class="thumb photo"><img src="${src}" alt="" loading="lazy"></div>` : `<div class="thumb" style="${bg(p)}">${bottle(p)}</div>`;
+  }
   let gen = "h";
   try { gen = localStorage.getItem("stella-gen") === "m" ? "m" : "h"; } catch(e){}
   function render(){
@@ -477,7 +528,7 @@ body.has-order footer{padding-bottom:150px}
     document.getElementById("tab-m").setAttribute("aria-pressed", String(gen==="m"));
     document.getElementById("shelf").innerHTML = PERFUMES.filter(p => p.g===gen).map(p => `
       <article class="card">
-        <div class="orb" style="background:${p.col}"></div>
+        ${visual(p)}
         <div class="top"><span class="fam">${p.f}</span><span class="season">${p.t}</span></div>
         <div><div class="brand">${esc(p.m)}</div><h3>${esc(p.n)}</h3><div class="conc">${esc(p.c)}</div></div>
         <ul class="notes">${p.notas.map(x => `<li>${esc(x)}</li>`).join("")}</ul>
@@ -504,7 +555,7 @@ body.has-order footer{padding-bottom:150px}
     const base = CATALOGO.filter(p => p.g===cgen);
     const fams = ["Todas", ...new Set(base.map(p=>p.f))];
     if (!fams.includes(cfam)) cfam = "Todas";
-    document.getElementById("fams").innerHTML = fams.map(f => `<button type="button" class="chip" data-f="${f}" aria-pressed="${f===cfam}">${f}</button>`).join("");
+    document.getElementById("fams").innerHTML = fams.map(f => `<button type="button" class="chip" data-f="${f}" aria-pressed="${f===cfam}">${FAM[f]?`<span class="dot" style="background:${FAM[f][0]}"></span>`:""}${f}</button>`).join("");
     const q = norm(query.trim());
     const list = base.filter(p => (cfam==="Todas" || p.f===cfam) && (!q || norm(p.n+" "+p.m+" "+p.notas+" "+p.f).includes(q))).sort((a,b)=>a.p10-b.p10);
     document.getElementById("count").textContent = list.length + (list.length===1 ? " perfume" : " perfumes") + " · ordenados de menor a mayor precio";
@@ -512,8 +563,9 @@ body.has-order footer{padding-bottom:150px}
       return `<button type="button" class="addb${n?" on":""}" data-k="${k}" aria-label="Agregar ${esc(p.n)} de ${ml} ml al pedido"><small>${ml} ml</small><b>${clp(p["p"+ml])}</b><span class="q">${n}</span></button>`; };
     document.getElementById("list").innerHTML = list.length ? list.map(p => `
       <article class="row">
+        ${thumb(p)}
         <div class="rn"><div class="rb">${esc(p.m)} · ${esc(p.c)}</div><h3>${esc(p.n)}</h3>
-          <div class="rm"><span class="k">${p.f}</span><span>${p.t}</span>${p.aviso?`<span class="soon">${esc(p.aviso)}</span>`:""}</div></div>
+          <div class="rm"><span class="k"><span class="dot" style="background:${(FAM[p.f]||["#e2a04a"])[0]}"></span>${p.f}</span><span>${p.t}</span>${p.aviso?`<span class="soon">${esc(p.aviso)}</span>`:""}</div></div>
         <p>${esc(p.notas)}</p>
         <div class="buy">${btn(p,7)}${btn(p,10)}</div>
       </article>`).join("") : `<p class="empty">No encontramos perfumes con esa búsqueda. Prueba con otra nota o escríbenos.</p>`;
