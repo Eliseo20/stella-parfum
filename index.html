@@ -438,7 +438,6 @@ body.has-order footer{padding-bottom:150px}
           <div class="eyebrow">Así rinde un decant</div>
           <h2 id="h-spray">Tres sprays y te acompaña todo el día.</h2>
           <p>Cada decant viene en un atomizador de vidrio con pulverizador, igual que un frasco grande. Lo llevas en el bolsillo o la cartera y lo usas donde quieras.</p>
-          <div class="meter"><b id="sprays">200</b><span>sprays aprox. en un decant de 10 ml<br>(110–140 en el de 7 ml)</span></div>
           <div class="ticks" aria-hidden="true"><i></i><i></i><i></i></div>
         </div>
         <div class="sstage" id="sstage" aria-hidden="true">
@@ -806,7 +805,7 @@ body.has-order footer{padding-bottom:150px}
         parts.push({x:noz.x, y:noz.y, vx:Math.cos(a)*sp, vy:Math.sin(a)*sp, r:.6+Math.random()*1.6, life:1, decay:.012+Math.random()*.018, warm:Math.random()<.5});
       }
       vial.classList.add("press"); setTimeout(()=>vial.classList.remove("press"), 140);
-      left = left<=3 ? 200 : left-1; counter.textContent = left;
+      left = left<=3 ? 200 : left-1; if (counter) counter.textContent = left;
       ticks.forEach((t,i)=>t.classList.toggle("on", i<fired+1));
     }
     function frame(ts){
