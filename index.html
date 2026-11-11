@@ -242,6 +242,55 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
 .vial.press .act{transform:translateY(7px)}
 @media (max-width:900px){.spray{grid-template-columns:1fr;padding:30px 22px;gap:10px}.sstage{height:330px}.vial{height:290px;left:22%}}
 
+
+/* guía para elegir */
+.occ{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.occb{font:inherit;display:flex;align-items:center;gap:8px;border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--mist);padding:10px 16px;border-radius:14px;cursor:pointer;font-weight:500}
+.occb svg{width:18px;height:18px}
+.occb[aria-selected="true"]{background:var(--champagne);color:var(--ink);border-color:var(--champagne)}
+.occpanel{border-radius:24px;border:1px solid var(--line);padding:28px;background:radial-gradient(80% 120% at 100% 0%,rgba(234,169,91,.14),transparent 60%),var(--velvet);display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:28px}
+.occpanel h3{font-family:var(--f-display);font-weight:400;font-size:1.9rem;margin:0;line-height:1.1}
+.occpanel .why{color:var(--mist);margin:10px 0 0}
+.occpanel .keys{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.occpanel .keys span{font-size:.8rem;padding:4px 10px;border-radius:99px;background:rgba(234,169,91,.14);color:var(--amber)}
+.occpanel .use{margin-top:14px;font-size:.9rem;color:var(--champagne)}
+.picks{display:grid;gap:14px;min-width:0}
+.picks h4{margin:0 0 8px;font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mist);font-weight:600}
+.pchips{display:flex;flex-wrap:wrap;gap:8px}
+.pchip{font:inherit;display:flex;align-items:center;gap:8px;border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--champagne);border-radius:12px;padding:8px 12px;cursor:pointer;text-align:left;min-width:0}
+.pchip:hover{border-color:var(--amber)}
+.pchip small{display:block;color:var(--mist);font-size:.74rem}
+.gh3{font-family:var(--f-display);font-weight:400;font-size:1.6rem;margin:48px 0 6px}
+.gsub{color:var(--mist);margin:0 0 16px;max-width:60ch}
+.fams{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.fam{border-radius:18px;padding:18px;border:1px solid var(--line);background:rgba(31,24,48,.6);min-width:0;position:relative;overflow:hidden}
+.fam::before{content:"";position:absolute;width:120px;height:120px;border-radius:50%;right:-40px;top:-50px;background:var(--c);opacity:.35;filter:blur(22px)}
+.fam b{font-family:var(--f-display);font-weight:400;font-size:1.35rem;display:flex;align-items:center;gap:8px;position:relative}
+.fam p{margin:6px 0 0;color:var(--mist);font-size:.9rem;position:relative}
+.fam .ing{font-size:.82rem;color:var(--champagne);margin-top:8px;position:relative}
+.fam .when{font-size:.78rem;color:var(--amber);margin-top:6px;position:relative}
+.gtwo{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.gbox{min-width:0}
+.conc,.pyr{display:grid;gap:10px}
+.conc>div,.pyr>div{border:1px solid var(--line);border-radius:16px;padding:14px 16px;background:rgba(31,24,48,.6)}
+.conc b,.pyr b{font-size:1.05rem}
+.conc span,.pyr span{color:var(--mist);font-size:.82rem;margin-left:8px}
+.conc i{display:block;height:6px;border-radius:99px;margin:10px 0 6px;background:linear-gradient(90deg,var(--amber) var(--w),var(--line) var(--w))}
+.conc em{font-style:normal;font-size:.82rem;color:var(--amber);font-weight:600}
+.conc p,.pyr p{margin:4px 0 0;color:var(--mist);font-size:.9rem}
+.tip{margin:12px 0 0;font-size:.9rem;color:var(--mist)}
+.tip b{color:var(--champagne)}
+.temp{border:1px solid var(--line);border-radius:20px;padding:18px;background:rgba(31,24,48,.6)}
+.tbar{height:10px;border-radius:99px;background:linear-gradient(90deg,#6a8fd6,#e2a04a 50%,#ef6f52)}
+.tcols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:14px}
+.tcols b{display:block;font-variant-numeric:tabular-nums}
+.tcols p{margin:4px 0 0;color:var(--mist);font-size:.9rem}
+.apply{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.apply>div{border-top:2px solid var(--amber);padding-top:10px;min-width:0}
+.apply p{margin:4px 0 0;color:var(--mist);font-size:.9rem}
+@media (max-width:900px){.occpanel{grid-template-columns:1fr;padding:22px}.fams{grid-template-columns:repeat(2,minmax(0,1fr))}.gtwo{grid-template-columns:1fr}.apply{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:580px){.fams,.tcols,.apply{grid-template-columns:1fr}}
+
 /* barra de pedido */
 .obar{position:fixed;left:0;right:0;bottom:0;z-index:25;background:rgba(19,15,28,.92);backdrop-filter:blur(10px);border-top:1px solid var(--line);padding-top:12px;padding-bottom:calc(12px + env(safe-area-inset-bottom,0px))}
 .obar .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
@@ -298,7 +347,7 @@ body.has-order footer{padding-bottom:150px}
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1.5l2.2 7.3 7.3 2.2-7.3 2.2-2.2 7.3-2.2-7.3L2.5 11l7.3-2.2z" fill="#eaa95b"/></svg>
       <b>Stella Parfum</b>
     </a>
-    <nav style="display:flex;gap:8px;align-items:center"><a class="pill" href="#catalogo">Catálogo</a>
+    <nav style="display:flex;gap:8px;align-items:center"><a class="pill" href="#catalogo">Catálogo</a><a class="pill" href="#guia">Guía</a>
     <a class="pill js-wa" href="#" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#25d366" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.6 2.1 1.1 1 2 1.3 2.3 1.4.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.2z"/></svg>
       <span class="t">Escríbenos</span>
@@ -355,24 +404,32 @@ body.has-order footer{padding-bottom:150px}
     </div>
   </div>
 
-  <section class="block gut" id="favoritos" aria-labelledby="h-fav">
+
+
+
+  <section class="block gut" id="catalogo" aria-labelledby="h-cat">
     <div class="wrap">
       <div class="head">
         <div>
-          <div class="eyebrow">La vitrina</div>
-          <h2 id="h-fav">Los más pedidos</h2>
+          <div class="eyebrow">Todo lo que tenemos</div>
+          <h2 id="h-cat">Catálogo completo</h2>
         </div>
-        <div class="tabs" role="group" aria-label="Elegir perfumes de hombre o de mujer">
-          <button type="button" class="tab" id="tab-h" aria-pressed="true">Hombre</button>
-          <button type="button" class="tab" id="tab-m" aria-pressed="false">Mujer</button>
+        <div class="tabs" role="group" aria-label="Catálogo de hombre o de mujer">
+          <button type="button" class="tab" id="ctab-h" aria-pressed="true">Hombre</button>
+          <button type="button" class="tab" id="ctab-m" aria-pressed="false">Mujer</button>
         </div>
       </div>
-      <div class="shelf" id="shelf"></div>
-      <div class="more"><a class="btn btn-ghost" href="#catalogo">Ver el catálogo completo</a></div>
+      <div class="ctools">
+        <label class="search" for="q">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M20 20l-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <input id="q" type="search" placeholder="Busca por perfume, marca o nota (vainilla, mango…)" autocomplete="off">
+        </label>
+      </div>
+      <div class="chips" id="fams" role="group" aria-label="Filtrar por familia olfativa"></div>
+      <p class="count" id="count"></p>
+      <div class="list" id="list"></div>
     </div>
   </section>
-
-
 
   <section class="block gut" aria-labelledby="h-spray">
     <div class="wrap">
@@ -413,27 +470,62 @@ body.has-order footer{padding-bottom:150px}
     </div>
   </section>
 
-  <section class="block gut" id="catalogo" aria-labelledby="h-cat">
+
+
+  <section class="block gut" id="guia" aria-labelledby="h-guia">
     <div class="wrap">
       <div class="head">
         <div>
-          <div class="eyebrow">Todo lo que tenemos</div>
-          <h2 id="h-cat">Catálogo completo</h2>
+          <div class="eyebrow">Guía para elegir</div>
+          <h2 id="h-guia">¿Qué perfume uso para cada ocasión?</h2>
         </div>
-        <div class="tabs" role="group" aria-label="Catálogo de hombre o de mujer">
-          <button type="button" class="tab" id="ctab-h" aria-pressed="true">Hombre</button>
-          <button type="button" class="tab" id="ctab-m" aria-pressed="false">Mujer</button>
+        <p>Elige la ocasión y te mostramos qué perfumes del catálogo funcionan mejor. Toca un perfume para verlo en el catálogo.</p>
+      </div>
+
+      <div class="occ" role="tablist" aria-label="Ocasiones" id="occtabs"></div>
+      <div class="occpanel" id="occpanel" role="tabpanel" aria-live="polite"></div>
+
+      <h3 class="gh3">Las familias olfativas</h3>
+      <p class="gsub">La familia te dice cómo huele un perfume en general. Si ya tienes uno que te gusta, busca otros de su misma familia.</p>
+      <div class="fams" id="famgrid"></div>
+
+      <div class="gtwo">
+        <div class="gbox">
+          <h3 class="gh3">Concentración: cuánto dura</h3>
+          <div class="conc">
+            <div><b>EDT</b><span>Eau de Toilette</span><i style="--w:40%"></i><em>4–6 horas aprox.</em><p>Más liviano y fresco. Ideal para el día, la oficina y el calor.</p></div>
+            <div><b>EDP</b><span>Eau de Parfum</span><i style="--w:65%"></i><em>6–8 horas aprox.</em><p>El equilibrio: dura toda la jornada y se nota sin invadir.</p></div>
+            <div><b>Parfum / Extrait</b><span>Concentración máxima</span><i style="--w:92%"></i><em>8–12 horas o más</em><p>Intenso y cálido. Rinde mucho: con 2 sprays basta.</p></div>
+          </div>
+        </div>
+        <div class="gbox">
+          <h3 class="gh3">Notas: cómo cambia en la piel</h3>
+          <div class="pyr">
+            <div><b>Salida</b><span>Primeros 15 minutos</span><p>Lo primero que hueles: cítricos, frutas y hierbas. Se van rápido.</p></div>
+            <div><b>Corazón</b><span>De 30 minutos a 3 horas</span><p>El carácter del perfume: flores, especias y frutas maduras.</p></div>
+            <div><b>Fondo</b><span>Lo que queda al final del día</span><p>Vainilla, maderas, ámbar y almizcle. Es lo que deja tu estela.</p></div>
+          </div>
+          <p class="tip"><b>Consejo:</b> no elijas por el primer olor. Prueba en la piel y espera 30 minutos antes de decidir.</p>
         </div>
       </div>
-      <div class="ctools">
-        <label class="search" for="q">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M20 20l-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-          <input id="q" type="search" placeholder="Busca por perfume, marca o nota (vainilla, mango…)" autocomplete="off">
-        </label>
+
+      <h3 class="gh3">Según la temperatura</h3>
+      <div class="temp">
+        <div class="tbar" aria-hidden="true"></div>
+        <div class="tcols">
+          <div><b>Menos de 15°</b><p>Dulces y especiados: vainilla, tabaco, miel, cardamomo. Con frío se proyectan mejor y duran más.</p></div>
+          <div><b>15° a 25°</b><p>Casi todo funciona. Frutales, cítricos con fondo dulce y los "todo el año".</p></div>
+          <div><b>Más de 25°</b><p>Frescos, cítricos y marinos. Los dulces con calor pueden saturar: usa menos sprays.</p></div>
+        </div>
       </div>
-      <div class="chips" id="fams" role="group" aria-label="Filtrar por familia olfativa"></div>
-      <p class="count" id="count"></p>
-      <div class="list" id="list"></div>
+
+      <h3 class="gh3">Cómo aplicarlo</h3>
+      <div class="apply">
+        <div><b>Dónde</b><p>Cuello, detrás de las orejas y muñecas: son zonas cálidas que hacen que el aroma se libere.</p></div>
+        <div><b>Cuántos sprays</b><p>2 o 3 en la oficina o lugares cerrados; 3 o 4 al aire libre o de noche.</p></div>
+        <div><b>No frotes</b><p>Frotar las muñecas rompe las notas de salida. Deja que se seque solo.</p></div>
+        <div><b>En la ropa</b><p>Un spray en la ropa dura más que en la piel. Evita telas blancas o seda.</p></div>
+      </div>
     </div>
   </section>
 
@@ -598,9 +690,7 @@ body.has-order footer{padding-bottom:150px}
       </article>`).join("");
   }
   const setGen = g => { gen = g; try { localStorage.setItem("stella-gen", g); } catch(e){} render(); };
-  document.getElementById("tab-h").addEventListener("click", () => setGen("h"));
-  document.getElementById("tab-m").addEventListener("click", () => setGen("m"));
-  render();
+
 
 
   /* ---- catálogo completo + pedido ---- */
@@ -659,6 +749,43 @@ body.has-order footer{padding-bottom:150px}
       <a href="${wa("Hola, quiero el "+p.n+" de Stella Parfum.")}" target="_blank" rel="noopener">Pedir este pack</a>
     </div>`).join("");
   renderCat(); renderOrder();
+
+  /* guía: ocasiones, familias */
+  const OCASIONES = [
+    {k:"oficina", t:"Oficina y día a día", d:"Perfumes limpios y frescos que se sienten cerca sin invadir un espacio cerrado.", keys:["Fresco","Cítrico","EDT o EDP"], use:"2 sprays: cuello y una muñeca.", h:["star","cdn","odyssey","hawas","poloblue"], m:["ralph","si","blossom"], ico:"M4 7h16v12H4zM9 7V5h6v2"},
+    {k:"cita", t:"Cita o salida nocturna", d:"Dulces y especiados que dejan estela cuando alguien se acerca. Son los que más elogios reciben de noche.", keys:["Dulce","Especiado","Vainilla, tabaco, ámbar"], use:"3 sprays: cuello y detrás de las orejas.", h:["lme","lanuit","1m","liquidbrun","asad","9pmelixir"], m:["labomba","irisabsolu","si"], ico:"M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.5-7 10-7 10z"},
+    {k:"verano", t:"Calor, playa y verano", d:"Marinos, cítricos y frutales que se mantienen livianos con más de 25°.", keys:["Fresco","Cítrico","Frutal"], use:"3 o 4 sprays; al aire libre se disipan rápido.", h:["profondo","erosenergy","asadzanzibar","vulcan","hawas"], m:["yellowdream","amoramor","212fymujer"], ico:"M12 4v2M12 18v2M4 12h2M18 12h2M6.3 6.3l1.4 1.4M16.3 16.3l1.4 1.4M6.3 17.7l1.4-1.4M16.3 7.7l1.4-1.4M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"},
+    {k:"formal", t:"Evento formal o trabajo importante", d:"Elegantes y sobrios: maderas, especias suaves y cuero. Se notan con clase, sin ser dulces en exceso.", keys:["Especiado","Maderas","Cuero"], use:"2 o 3 sprays; mejor en el pecho que en el cuello.", h:["lanuit","scandal","amberoud","asadelixir","profondo"], m:["irisabsolu","si"], ico:"M8 3h8l-2 5h-4zM12 8v13M8 21h8"},
+    {k:"frio", t:"Frío e invierno", d:"Con menos de 15° los perfumes cálidos brillan: proyectan más y duran todo el día.", keys:["Dulce","Especiado","Parfum o Extrait"], use:"2 o 3 sprays; en la bufanda dura días.", h:["lme","asadbourbon","liquidbrun","9pmelixir","asadelixir","scandal"], m:["irisabsolu"], ico:"M12 3v18M5 7l14 10M19 7L5 17"},
+    {k:"fiesta", t:"Fiesta o para destacar", d:"Potentes y llamativos, hechos para hacerse notar entre la gente.", keys:["Dulce","Frutal","Alta proyección"], use:"3 o 4 sprays.", h:["1m","lme","heroes","erosenergy","vulcan"], m:["labomba","212fymujer"], ico:"M12 3l2.2 5.8L20 9l-4.6 3.8L17 19l-5-3.3L7 19l1.6-6.2L4 9l5.8-.2z"},
+    {k:"regalo", t:"Regalo o primera compra", d:"Agradan a casi todo el mundo y son fáciles de llevar. Si no sabes por dónde partir, parte por aquí.", keys:["Versátil","Todo el año"], use:"Tip: un pack de 3 decants es un regalo perfecto para que elija su favorito.", h:["cdn","odyssey","star","poloblue","hawasblack"], m:["si","ralph","amoramor"], ico:"M4 10h16v10H4zM3 7h18v3H3zM12 7v13M12 7c-2-4-6-3-5 0M12 7c2-4 6-3 5 0"}
+  ];
+  const FAMINFO = [
+    ["Dulce","Cálidos, envolventes y golosos. Los más elogiados de noche.","Vainilla · miel · haba tonka · ámbar","Noche, frío, citas"],
+    ["Especiado","Elegantes y con carácter. Mezclan especias con maderas o cuero.","Canela · cardamomo · pimienta · tabaco","Otoño-invierno, eventos"],
+    ["Fresco","Limpios, aireados y fáciles de usar. Huelen a ducha recién tomada.","Notas marinas · lavanda · hierbas · almizcle","Oficina, día, calor"],
+    ["Frutal","Alegres y juveniles, con fruta jugosa sobre un fondo suave.","Mango · piña · pera · frutos rojos","Primavera-verano, salidas"],
+    ["Cítrico","Energía pura: chispeantes y luminosos.","Bergamota · limón · naranja · pomelo","Verano, deporte, mañana"],
+    ["Floral","Delicados o intensos, con flores como protagonistas.","Rosa · jazmín · iris · azahar","Todo el año, citas, eventos"]
+  ];
+  document.getElementById("famgrid").innerHTML = FAMINFO.map(([f,d,ing,w]) => `<div class="fam" style="--c:${(FAM[f]||["#e2a04a"])[0]}"><b><span class="dot" style="background:${(FAM[f]||["#e2a04a"])[0]}"></span>${f}</b><p>${d}</p><div class="ing">${ing}</div><div class="when">Para: ${w}</div></div>`).join("");
+  let occ = "oficina";
+  const occIcon = d => `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="${d}" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+  function renderOcc(){
+    document.getElementById("occtabs").innerHTML = OCASIONES.map(o => `<button type="button" role="tab" class="occb" data-k="${o.k}" aria-selected="${o.k===occ}">${occIcon(o.ico)}${o.t}</button>`).join("");
+    const o = OCASIONES.find(x=>x.k===occ);
+    const chips = ids => ids.filter(id=>byId[id]).map(id => { const p=byId[id]; return `<button type="button" class="pchip" data-id="${id}"><span class="dot" style="background:${(FAM[p.f]||["#e2a04a"])[0]}"></span><span>${esc(p.n)}<small>${esc(p.m)} · desde ${clp(p.p7)}</small></span></button>`; }).join("");
+    document.getElementById("occpanel").innerHTML = `<div><h3>${o.t}</h3><p class="why">${o.d}</p><div class="keys">${o.keys.map(k=>`<span>${k}</span>`).join("")}</div><p class="use"><b>Cómo usarlo:</b> ${o.use}</p></div>
+      <div class="picks"><div><h4>Para él</h4><div class="pchips">${chips(o.h)}</div></div>${o.m.length?`<div><h4>Para ella</h4><div class="pchips">${chips(o.m)}</div></div>`:""}</div>`;
+  }
+  document.getElementById("occtabs").addEventListener("click", e => { const b=e.target.closest(".occb"); if (b){ occ=b.dataset.k; renderOcc(); } });
+  document.getElementById("occpanel").addEventListener("click", e => {
+    const b=e.target.closest(".pchip"); if (!b) return;
+    const p = byId[b.dataset.id]; cgen = p.g; cfam = "Todas"; query = p.n; document.getElementById("q").value = p.n; renderCat();
+    document.getElementById("catalogo").scrollIntoView({behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"});
+  });
+  renderOcc();
+
 
 
   /* decant pulverizando: 3 sprays rápidos, pausa y repite */
