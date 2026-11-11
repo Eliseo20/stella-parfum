@@ -775,7 +775,7 @@ body.has-order footer{padding-bottom:150px}
     document.getElementById("occtabs").innerHTML = OCASIONES.map(o => `<button type="button" role="tab" class="occb" data-k="${o.k}" aria-selected="${o.k===occ}">${occIcon(o.ico)}${o.t}</button>`).join("");
     const o = OCASIONES.find(x=>x.k===occ);
     const chips = ids => ids.filter(id=>byId[id]).map(id => { const p=byId[id]; return `<button type="button" class="pchip" data-id="${id}"><span class="dot" style="background:${(FAM[p.f]||["#e2a04a"])[0]}"></span><span>${esc(p.n)}<small>${esc(p.m)} · desde ${clp(p.p7)}</small></span></button>`; }).join("");
-    document.getElementById("occpanel").innerHTML = `<div><h3>${o.t}</h3><p class="why">${o.d}</p><div class="keys">${o.keys.map(k=>`<span>${k}</span>`).join("")}</div><p class="use"><b>Cómo usarlo:</b> ${o.use}</p></div>
+    document.getElementById("occpanel").innerHTML = `<div><h3>${o.t}</h3><p class="why">${o.d}</p><div class="keys">${o.keys.map(k=>`<span>${k}</span>`).join("")}</div></div>
       <div class="picks"><div><h4>Para él</h4><div class="pchips">${chips(o.h)}</div></div>${o.m.length?`<div><h4>Para ella</h4><div class="pchips">${chips(o.m)}</div></div>`:""}</div>`;
   }
   document.getElementById("occtabs").addEventListener("click", e => { const b=e.target.closest(".occb"); if (b){ occ=b.dataset.k; renderOcc(); } });
