@@ -224,6 +224,24 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
 .row .thumb svg{height:88%;width:auto;filter:drop-shadow(0 6px 8px rgba(0,0,0,.4))}
 .dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;vertical-align:1px}
 
+
+/* demostración de pulverización */
+.spray{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:center;border-radius:30px;border:1px solid var(--line);background:radial-gradient(70% 90% at 75% 50%,rgba(234,169,91,.16),transparent 70%),linear-gradient(160deg,var(--velvet-2),var(--ink));padding:44px;overflow:hidden}
+.spray .scopy{min-width:0}
+.spray p{color:var(--mist);margin:16px 0 0;max-width:42ch}
+.meter{display:flex;align-items:baseline;gap:12px;margin-top:26px;flex-wrap:wrap}
+.meter b{font-family:var(--f-display);font-weight:400;font-size:clamp(3.2rem,8vw,4.6rem);line-height:1;font-variant-numeric:tabular-nums;color:var(--champagne)}
+.meter span{color:var(--mist);font-size:.95rem}
+.ticks{display:flex;gap:8px;margin-top:14px}
+.ticks i{width:34px;height:6px;border-radius:99px;background:var(--line);transition:background .15s}
+.ticks i.on{background:var(--amber)}
+.sstage{position:relative;height:380px;min-width:0}
+.sstage canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.vial{position:absolute;left:28%;top:50%;height:330px;width:auto;transform:translateY(-50%);filter:drop-shadow(0 26px 24px rgba(0,0,0,.5))}
+.vial .act{transition:transform .09s ease-in}
+.vial.press .act{transform:translateY(7px)}
+@media (max-width:900px){.spray{grid-template-columns:1fr;padding:30px 22px;gap:10px}.sstage{height:330px}.vial{height:290px;left:22%}}
+
 /* barra de pedido */
 .obar{position:fixed;left:0;right:0;bottom:0;z-index:25;background:rgba(19,15,28,.92);backdrop-filter:blur(10px);border-top:1px solid var(--line);padding-top:12px;padding-bottom:calc(12px + env(safe-area-inset-bottom,0px))}
 .obar .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
@@ -354,6 +372,46 @@ body.has-order footer{padding-bottom:150px}
     </div>
   </section>
 
+
+
+  <section class="block gut" aria-labelledby="h-spray">
+    <div class="wrap">
+      <div class="spray">
+        <div class="scopy">
+          <div class="eyebrow">Así rinde un decant</div>
+          <h2 id="h-spray">Tres sprays y te acompaña todo el día.</h2>
+          <p>Cada decant viene en un atomizador de vidrio con pulverizador, igual que un frasco grande. Lo llevas en el bolsillo o la cartera y lo usas donde quieras.</p>
+          <div class="meter"><b id="sprays">200</b><span>sprays aprox. en un decant de 10 ml<br>(110–140 en el de 7 ml)</span></div>
+          <div class="ticks" aria-hidden="true"><i></i><i></i><i></i></div>
+        </div>
+        <div class="sstage" id="sstage" aria-hidden="true">
+          <canvas id="mist"></canvas>
+          <svg class="vial" id="vial" viewBox="0 0 90 400">
+            <defs>
+              <linearGradient id="vmetal" x1="0" x2="1"><stop offset="0" stop-color="#8c6a3a"/><stop offset=".3" stop-color="#f6d79a"/><stop offset=".55" stop-color="#b8894a"/><stop offset="1" stop-color="#e2bb75"/></linearGradient>
+              <linearGradient id="vglass" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity=".3"/><stop offset=".25" stop-color="#fff" stop-opacity=".07"/><stop offset=".75" stop-color="#fff" stop-opacity=".16"/><stop offset="1" stop-color="#fff" stop-opacity=".05"/></linearGradient>
+              <linearGradient id="vliq" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f0b060"/><stop offset=".6" stop-color="#d9735e"/><stop offset="1" stop-color="#a8405a"/></linearGradient>
+            </defs>
+            <g class="act">
+              <rect x="27" y="8" width="36" height="34" rx="5" fill="url(#vmetal)"/>
+              <rect x="60" y="20" width="6" height="7" rx="1.5" fill="#3a2a18"/>
+              <rect x="31" y="12" width="5" height="26" rx="2.5" fill="#fff" opacity=".35"/>
+            </g>
+            <rect x="35" y="42" width="20" height="10" fill="#b8894a"/>
+            <rect x="24" y="52" width="42" height="16" rx="4" fill="url(#vmetal)"/>
+            <rect x="22" y="68" width="46" height="322" rx="16" fill="url(#vglass)" stroke="#fff" stroke-opacity=".35"/>
+            <rect x="23.5" y="132" width="43" height="256.5" rx="14.5" fill="url(#vliq)" opacity=".95"/>
+            <rect x="23.5" y="128" width="43" height="8" rx="4" fill="#f8cf8e" opacity=".9"/>
+            <line x1="45" y1="68" x2="45" y2="380" stroke="#fff" stroke-opacity=".35" stroke-width="1.4"/>
+            <rect x="29" y="80" width="6" height="296" rx="3" fill="#fff" opacity=".32"/>
+            <rect x="27" y="200" width="36" height="96" rx="3" fill="#130f1c" fill-opacity=".8" stroke="#f4e7d2" stroke-opacity=".5"/>
+            <text x="45" y="238" text-anchor="middle" font-family="DM Serif Display, Georgia, serif" font-size="10" fill="#f4e7d2" transform="rotate(-90 45 248)">STELLA</text>
+            <text x="58" y="248" text-anchor="middle" font-family="Outfit, sans-serif" font-size="6" letter-spacing="1.5" fill="#d2c8df" transform="rotate(-90 58 248)">10 ML</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <section class="block gut" id="catalogo" aria-labelledby="h-cat">
     <div class="wrap">
@@ -601,6 +659,57 @@ body.has-order footer{padding-bottom:150px}
       <a href="${wa("Hola, quiero el "+p.n+" de Stella Parfum.")}" target="_blank" rel="noopener">Pedir este pack</a>
     </div>`).join("");
   renderCat(); renderOrder();
+
+
+  /* decant pulverizando: 3 sprays rápidos, pausa y repite */
+  (function(){
+    const stage = document.getElementById("sstage"), cv = document.getElementById("mist"), vial = document.getElementById("vial");
+    const ctx = cv.getContext("2d"), counter = document.getElementById("sprays"), ticks = [...document.querySelectorAll(".ticks i")];
+    const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let W=0, H=0, parts=[], noz={x:0,y:0}, running=false, t0=0, fired=0, left=200;
+    function size(){
+      const r = stage.getBoundingClientRect(), d = Math.min(devicePixelRatio||1,2);
+      W=r.width; H=r.height; cv.width=W*d; cv.height=H*d; ctx.setTransform(d,0,0,d,0,0);
+      const v = vial.getBoundingClientRect(), k = v.height/400;
+      noz = {x: v.left - r.left + 66*k, y: v.top - r.top + 23.5*k};
+    }
+    function burst(){
+      for (let i=0;i<70;i++){
+        const a = (-0.32 + Math.random()*0.5), sp = 3.5 + Math.random()*5.5;
+        parts.push({x:noz.x, y:noz.y, vx:Math.cos(a)*sp, vy:Math.sin(a)*sp, r:.6+Math.random()*1.6, life:1, decay:.012+Math.random()*.018, warm:Math.random()<.5});
+      }
+      vial.classList.add("press"); setTimeout(()=>vial.classList.remove("press"), 140);
+      left = left<=3 ? 200 : left-1; counter.textContent = left;
+      ticks.forEach((t,i)=>t.classList.toggle("on", i<fired+1));
+    }
+    function frame(ts){
+      if (!running) return;
+      if (!t0) t0 = ts;
+      const e = (ts - t0) / 1000;
+      if (fired < 3 && e >= fired*0.38) { burst(); fired++; }
+      if (e > 3.4) { t0 = ts; fired = 0; ticks.forEach(t=>t.classList.remove("on")); }
+      ctx.clearRect(0,0,W,H);
+      parts = parts.filter(p => p.life > 0);
+      for (const p of parts){
+        p.x += p.vx; p.y += p.vy; p.vx *= .955; p.vy = p.vy*.955 + .012; p.r += .09; p.life -= p.decay;
+        ctx.beginPath(); ctx.fillStyle = `rgba(${p.warm?"246,214,160":"244,231,210"},${Math.max(p.life,0)*.5})`; ctx.arc(p.x,p.y,p.r,0,6.283); ctx.fill();
+      }
+      requestAnimationFrame(frame);
+    }
+    function staticMist(){
+      ctx.clearRect(0,0,W,H);
+      for (let i=0;i<160;i++){ const a=-0.3+Math.random()*0.5, d=10+Math.random()*150;
+        ctx.beginPath(); ctx.fillStyle=`rgba(244,231,210,${.35*(1-d/170)})`; ctx.arc(noz.x+Math.cos(a)*d, noz.y+Math.sin(a)*d, 1+d/40, 0, 6.283); ctx.fill(); }
+      ticks.forEach(t=>t.classList.add("on"));
+    }
+    size();
+    if (still) { staticMist(); addEventListener("resize", ()=>{ size(); staticMist(); }); return; }
+    addEventListener("resize", size);
+    new IntersectionObserver(es => es.forEach(en => {
+      if (en.isIntersecting && !running){ running=true; t0=0; fired=0; size(); requestAnimationFrame(frame); }
+      else if (!en.isIntersecting) running=false;
+    }), {threshold:.25}).observe(stage);
+  })();
 
   /* destellos alrededor del frasco */
   const cv = document.getElementById("spark"), ctx = cv.getContext("2d");
