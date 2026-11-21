@@ -638,7 +638,7 @@ body.has-order footer{padding-bottom:150px}
 
   /* Ilustración del decant: frasco atomizador de 10 ml con el color de la familia del perfume */
   const FAM = {Dulce:["#e2a04a","#9a4f22"],Especiado:["#d0683e","#7a2a22"],Fresco:["#69b8d6","#24607e"],Frutal:["#ef7f62","#a63a52"],"Cítrico":["#f2cf55","#c27a1f"],Floral:["#f09ab8","#9a4a8a"]};
-  const FOTOS = {"cdn":"img/cdn-frasco.jpg", "star":"img/star-frasco.jpg", lme:"img/lme-frasco.jpg", vulcan:"img/vulcan-frasco.jpg", "1m":"img/1m-frasco.jpg"};
+  const FOTOS = {"odyssey":"img/odyssey-frasco.jpg", "cdn":"img/cdn-frasco.jpg", "star":"img/star-frasco.jpg", lme:"img/lme-frasco.jpg", vulcan:"img/vulcan-frasco.jpg", "1m":"img/1m-frasco.jpg"};
   const hash = t => { let h=0; for (const c of t) h=(h*31+c.charCodeAt(0))|0; return Math.abs(h); };
   function bottle(p){
     const [a,b] = FAM[p.f] || ["#e2a04a","#7a3a2a"], h = hash(p.n), id = "g"+h;
