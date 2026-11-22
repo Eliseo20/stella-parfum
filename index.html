@@ -223,6 +223,41 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
 .row .thumb img{width:100%;height:100%;object-fit:contain;padding:4px}
 .row .thumb svg{height:88%;width:auto;filter:drop-shadow(0 6px 8px rgba(0,0,0,.4))}
 .dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;vertical-align:1px}
+/* ficha de perfume */
+.tbtn{all:unset;cursor:zoom-in;border-radius:14px;display:block}
+.tbtn:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+.tbtn .thumb{transition:transform .25s cubic-bezier(.2,.7,.2,1)}
+.tbtn:hover .thumb{transform:scale(1.06)}
+.row h3[data-open]{cursor:pointer}
+.row h3[data-open]:hover{color:var(--amber)}
+.more{all:unset;cursor:pointer;font-size:.8rem;color:var(--amber);margin-top:2px;display:inline-block}
+.more:focus-visible{outline:2px solid var(--amber);outline-offset:2px;border-radius:4px}
+dialog.pd{border:1px solid var(--line);border-radius:24px;padding:0;max-width:min(560px,calc(100vw - 24px));width:100%;max-height:calc(100dvh - 24px);background:var(--velvet);color:var(--champagne);overflow:auto;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+dialog.pd::backdrop{background:rgba(10,8,16,.72);backdrop-filter:blur(4px)}
+dialog.pd[open]{animation:pdin .28s cubic-bezier(.2,.7,.2,1)}
+@keyframes pdin{from{opacity:0;transform:translateY(14px) scale(.97)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){dialog.pd[open]{animation:none}.tbtn .thumb{transition:none}}
+.pd .pimg{position:relative;height:min(46vh,340px);display:grid;place-items:center;border-bottom:1px solid var(--line)}
+.pd .pimg.photo{background:#fff}
+.pd .pimg img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:18px}
+.pd .addb small{white-space:nowrap}
+.pd .pimg svg{height:90%;width:auto;filter:drop-shadow(0 18px 18px rgba(0,0,0,.45))}
+.pd .px{position:absolute;top:10px;right:10px;width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:rgba(19,15,28,.7);color:var(--champagne);font-size:1.4rem;line-height:1;cursor:pointer;display:grid;place-items:center}
+.pd .pb{padding:22px 24px 24px;display:flex;flex-direction:column;gap:14px}
+.pd .pbrand{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mist)}
+.pd h3{font-family:var(--f-display);font-weight:400;font-size:2rem;line-height:1.05;margin:2px 0 0}
+.pd .pmeta{display:flex;flex-wrap:wrap;gap:8px 14px;font-size:.88rem;color:var(--mist)}
+.pd .pd-d{margin:0;color:var(--champagne)}
+.pd .pnotes{display:flex;flex-wrap:wrap;gap:6px;list-style:none;margin:0;padding:0}
+.pd .pnotes li{font-size:.8rem;padding:4px 10px;border-radius:99px;border:1px solid var(--line);color:var(--mist)}
+.pd .pfacts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pd .pfacts div{border:1px solid var(--line);border-radius:14px;padding:10px 12px;background:rgba(255,255,255,.03);min-width:0}
+.pd .pfacts small{display:block;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mist)}
+.pd .pfacts b{font-weight:500;font-size:.92rem}
+.pd .buy{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pd .ask{text-align:center;color:var(--amber);font-size:.9rem;text-decoration:none}
+@media (max-width:420px){.pd .pfacts{grid-template-columns:1fr}}
+
 
 
 /* demostración de pulverización */
@@ -597,6 +632,7 @@ body.has-order footer{padding-bottom:150px}
   <span class="t">WhatsApp</span>
 </a>
 
+<dialog class="pd" id="pdlg"></dialog>
 <script>
 (function(){
   /* ---- Edita aquí ---- */
@@ -710,8 +746,8 @@ body.has-order footer{padding-bottom:150px}
       return `<button type="button" class="addb${n?" on":""}" data-k="${k}" aria-label="Agregar ${esc(p.n)} de ${ml} ml al pedido"><small>${ml} ml</small><b>${clp(p["p"+ml])}</b><span class="q">${n}</span></button>`; };
     document.getElementById("list").innerHTML = list.length ? list.map(p => `
       <article class="row">
-        ${thumb(p)}
-        <div class="rn"><div class="rb">${esc(p.m)} · ${esc(p.c)}</div><h3>${esc(p.n)}</h3>
+        <button type="button" class="tbtn" data-open="${p.id}" aria-label="Ver ficha de ${esc(p.n)}">${thumb(p)}</button>
+        <div class="rn"><div class="rb">${esc(p.m)} · ${esc(p.c)}</div><h3 data-open="${p.id}">${esc(p.n)}</h3>
           <div class="rm"><span class="k"><span class="dot" style="background:${(FAM[p.f]||["#e2a04a"])[0]}"></span>${p.f}</span><span>${p.t}</span>${p.aviso?`<span class="soon">${esc(p.aviso)}</span>`:""}</div></div>
         <p>${esc(p.notas)}</p>
         <div class="buy">${btn(p,7)}${btn(p,10)}</div>
@@ -748,6 +784,37 @@ body.has-order footer{padding-bottom:150px}
       <a href="${wa("Hola, quiero el "+p.n+" de Stella Parfum.")}" target="_blank" rel="noopener">Pedir este pack</a>
     </div>`).join("");
   renderCat(); renderOrder();
+
+  /* ficha de perfume */
+  const DESC = {"lme": {"d": "Versión más intensa y dulce del clásico Le Mâle. Abre con lavanda y menta, y se vuelve una mezcla cálida de miel, vainilla y tabaco que se nota a distancia.", "uso": "Noches, salidas y citas en clima frío", "est": "Duración muy alta · Estela fuerte"}, "1m": {"d": "Un ícono de los 2000: fresco y especiado al inicio, con canela y rosa, y un fondo de cuero y ámbar. Llamativo y fácil de reconocer.", "uso": "Fiestas, salidas nocturnas y otoño-invierno", "est": "Duración alta · Estela fuerte"}, "star": {"d": "Fresco y limpio, con cítricos y bambú sobre una base suave de sándalo y almizcle. Discreto, elegante y fácil de llevar.", "uso": "Oficina, día a día y clima templado", "est": "Duración media · Estela suave"}, "cdn": {"d": "Inspirado en un clásico ahumado de nicho: limón y piña jugosos con un fondo de abedul ahumado. Muy rendidor y versátil.", "uso": "Uso diario, oficina y salidas", "est": "Duración alta · Estela fuerte"}, "vulcan": {"d": "Frutal tropical con mango y jengibre que termina dulce y ambarado. Juvenil, alegre y muy notorio.", "uso": "Verano, salidas de día y panoramas al aire libre", "est": "Duración alta · Estela media-fuerte"}, "odyssey": {"d": "Mandarina dulce y acaramelada con un toque de azafrán y haba tonka. Cítrico pero cálido, muy agradable de cerca.", "uso": "Todo el año, día y tarde", "est": "Duración alta · Estela media"}, "heroes": {"d": "Fresco y frutal con pera, jengibre y limón, y un fondo suave de cuero. Energético y moderno.", "uso": "Día a día, primavera-verano", "est": "Duración media · Estela media"}, "erosenergy": {"d": "La versión cítrica y luminosa de Eros: naranja sanguina, pomelo y pimienta rosa. Vibrante y muy fresca.", "uso": "Verano, deporte, día y vacaciones", "est": "Duración media · Estela media"}, "ralph": {"d": "Floral frutal fresco con manzana verde y mandarina. Alegre, ligero y fácil de usar todos los días.", "uso": "Día a día, primavera-verano", "est": "Duración media · Estela suave"}, "hawas": {"d": "Acuático frutal con manzana y ciruela, y un fondo de ámbar gris. Muy fresco, gusta a casi todos.", "uso": "Verano, gimnasio, oficina y salidas de día", "est": "Duración muy alta · Estela fuerte"}, "hawasblack": {"d": "Hermano más profundo del Hawas: piña y pomelo con un fondo amaderado de pachulí y musgo. Fresco pero con más cuerpo.", "uso": "Todo el año, día y noche", "est": "Duración alta · Estela fuerte"}, "profondo": {"d": "La versión más intensa y marina de Acqua di Giò. Notas de mar, bergamota y lavanda con un fondo mineral y amaderado.", "uso": "Verano, oficina y ocasiones elegantes", "est": "Duración alta · Estela media"}, "amberoud": {"d": "Dulce afrutado con melón y piña sobre ámbar y vainilla. Llama la atención y deja huella.", "uso": "Salidas, eventos y todo el año", "est": "Duración muy alta · Estela fuerte"}, "liquidbrun": {"d": "Gourmand especiado con cardamomo, azahar y vainilla. Cálido, envolvente y elegante.", "uso": "Noches, citas y clima frío", "est": "Duración muy alta · Estela fuerte"}, "scandal": {"d": "Versión intensa de Scandal Pour Homme: salvia y cuero con un fondo amaderado de vetiver. Seductor y con carácter.", "uso": "Noches, citas y otoño-invierno", "est": "Duración alta · Estela fuerte"}, "asad": {"d": "Especiado y dulce con pimienta negra, tabaco y vainilla. Potente y masculino, ideal para el frío.", "uso": "Noches y clima frío", "est": "Duración muy alta · Estela fuerte"}, "asadelixir": {"d": "Más oscuro y resinoso que el Asad: azafrán, tabaco, incienso y vainilla. Intenso y sofisticado.", "uso": "Noches, eventos y clima frío", "est": "Duración muy alta · Estela fuerte"}, "asadzanzibar": {"d": "La versión fresca de Asad: lavanda marina, coco y sal con un toque de incienso. Veraniego y distinto.", "uso": "Verano, playa y día", "est": "Duración alta · Estela media"}, "asadbourbon": {"d": "Ciruela, cacao y vainilla con un fondo de vetiver. Dulce, licoroso y elegante.", "uso": "Noches y clima frío", "est": "Duración alta · Estela fuerte"}, "212fymujer": {"d": "Floral frutal con frambuesa y azahar sobre sándalo. Juvenil, dulce y luminoso.", "uso": "Día a día, salidas y primavera-verano", "est": "Duración media · Estela media"}, "irisabsolu": {"d": "La Vie Est Belle con más iris: dulce, polvoso y femenino, con grosella negra y pachulí. Elegante y reconfortante.", "uso": "Todo el año, oficina y salidas", "est": "Duración alta · Estela media-fuerte"}, "9pmelixir": {"d": "Especiado y cálido con cardamomo, cuero y vainilla. Muy rendidor por su precio.", "uso": "Noches y clima frío", "est": "Duración muy alta · Estela fuerte"}, "labomba": {"d": "Floral frutal tropical con pitahaya y peonía, y un fondo de vainilla y pachulí. Alegre, femenino y con mucha presencia.", "uso": "Salidas, fiestas y primavera-verano", "est": "Duración alta · Estela media-fuerte"}, "yellowdream": {"d": "Limón italiano y rosa sobre almizcle blanco. Luminoso, limpio y muy elegante.", "uso": "Día, oficina y primavera-verano", "est": "Duración media · Estela media"}, "si": {"d": "Chypre moderno con grosella negra, rosa y vainilla. Elegante, sensual y atemporal.", "uso": "Oficina, cenas y todo el año", "est": "Duración alta · Estela media"}, "lanuit": {"d": "Clásico de seducción: cardamomo y lavanda sobre cedro y vetiver. Suave, cercano y muy elegante.", "uso": "Citas, noches y otoño-invierno", "est": "Duración media · Estela suave-media"}, "amoramor": {"d": "Frutal dulce con naranja sanguina y grosella negra sobre vainilla. Romántico y alegre.", "uso": "Día a día y primavera-verano", "est": "Duración media · Estela media"}, "poloblue": {"d": "Acuático fresco con melón y pepino, y un fondo de gamuza. Limpio y deportivo.", "uso": "Verano, deporte y oficina", "est": "Duración media · Estela media"}, "blossom": {"d": "Floral frutal con frambuesa, guisante de olor y rosa. Dulce, femenino y primaveral.", "uso": "Día, salidas y primavera-verano", "est": "Duración media · Estela media"}, "212mennyc": {"d": "El 212 clásico de hombre: pomelo, bergamota y jengibre con un fondo de incienso, sándalo y almizcle. Limpio, urbano y versátil.", "uso": "Oficina, día a día y todo el año", "est": "Duración media · Estela media"}, "lmleparfum": {"d": "La versión más elegante de Le Male: cardamomo, lavanda e iris sobre vainilla y maderas. Cálido y refinado.", "uso": "Noches, citas y otoño-invierno", "est": "Duración alta · Estela media-fuerte"}, "ckone": {"d": "El unisex fresco por excelencia: cítricos, té verde y almizcle limpio. Ligero, compartible y perfecto para el calor.", "uso": "Verano, gimnasio y día a día, para él o ella", "est": "Duración media · Estela suave"}};
+  const pdlg = document.getElementById("pdlg");
+  let pdId = null;
+  function renderPd(){
+    const p = byId[pdId]; if (!p) return;
+    const x = DESC[p.id] || {}, src = FOTOS[p.id];
+    const notas = p.notas.replace(/\.$/,"").split(/, | y | e /).filter(Boolean);
+    const b = ml => { const k=p.id+"|"+ml, n=order[k]||0;
+      return `<button type="button" class="addb${n?" on":""}" data-k="${k}" aria-label="Agregar ${esc(p.n)} de ${ml} ml al pedido"><small>${ml} ml</small><b>${clp(p["p"+ml])}</b><span class="q">${n}</span></button>`; };
+    pdlg.innerHTML = `
+      <div class="pimg${src?" photo":""}" ${src?"":`style="${bg(p)}"`}>${src?`<img src="${src}" alt="Frasco de ${esc(p.n)}">`:bottle(p)}
+        <button type="button" class="px" data-close aria-label="Cerrar">×</button></div>
+      <div class="pb">
+        <div><div class="pbrand">${esc(p.m)} · ${esc(p.c)}</div><h3 id="pdt">${esc(p.n)}</h3></div>
+        <div class="pmeta"><span><span class="dot" style="background:${(FAM[p.f]||["#e2a04a"])[0]}"></span>${p.f}</span><span>${p.t}</span>${p.aviso?`<span class="soon">${esc(p.aviso)}</span>`:""}</div>
+        ${x.d?`<p class="pd-d">${esc(x.d)}</p>`:""}
+        <ul class="pnotes" aria-label="Notas">${notas.map(n=>`<li>${esc(n.charAt(0).toUpperCase()+n.slice(1))}</li>`).join("")}</ul>
+        <div class="pfacts">${x.uso?`<div><small>Ideal para</small><b>${esc(x.uso)}</b></div>`:""}${x.est?`<div><small>Duración y estela</small><b>${esc(x.est)}</b></div>`:""}</div>
+        <div class="buy">${b(7)}${b(10)}</div>
+        <a class="ask" href="${wa("Hola, quiero consultar por el " + p.n + " de " + p.m + ".")}" target="_blank" rel="noopener">Consultar por WhatsApp</a>
+      </div>`;
+  }
+  function openPd(id){ pdId=id; renderPd(); pdlg.setAttribute("aria-labelledby","pdt"); if (pdlg.showModal) pdlg.showModal(); else pdlg.setAttribute("open",""); }
+  document.getElementById("list").addEventListener("click", e => { const o=e.target.closest("[data-open]"); if (o) openPd(o.dataset.open); });
+  pdlg.addEventListener("click", e => {
+    if (e.target===pdlg || e.target.closest("[data-close]")) { pdlg.close(); return; }
+    const b=e.target.closest(".addb"); if (!b) return;
+    order[b.dataset.k]=(order[b.dataset.k]||0)+1; renderPd(); renderCat(); renderOrder();
+  });
 
   /* guía: ocasiones, familias */
   const OCASIONES = [
